@@ -7,11 +7,14 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class SportsViewController: UIViewController {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
 
 
