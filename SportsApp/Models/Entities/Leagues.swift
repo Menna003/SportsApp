@@ -7,18 +7,20 @@
 
 import Foundation
 
-struct LeaguesResponse: Decodable {
+struct LeaguesResponse: Decodable, Sendable {
     let success: Int
     let result: [League]
 }
 
-struct League: Decodable {
-    let leagueKey: Int
-    let leagueName: String
-    let countryKey: Int
-    let countryName: String
+struct League: Decodable, Sendable {
+    let leagueKey: Int?
+    let leagueName: String?
+    let countryKey: Int?
+    let countryName: String?
     let leagueLogo: String?
     let countryLogo: String?
+    let leagueYear: String?
+    let leagueSurface: String?
     
     enum CodingKeys: String, CodingKey {
         case leagueKey = "league_key"
@@ -27,5 +29,7 @@ struct League: Decodable {
         case countryName = "country_name"
         case leagueLogo = "league_logo"
         case countryLogo = "country_logo"
+        case leagueYear = "league_year"
+        case leagueSurface = "league_surface"
     }
 }

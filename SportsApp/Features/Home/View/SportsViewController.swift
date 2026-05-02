@@ -67,6 +67,13 @@ class SportsViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+
+        let selectedSport = sports[indexPath.row].0
+
+        let leaguesVC = storyboard?.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
+
+        leaguesVC.sportName = selectedSport
+
+        navigationController?.pushViewController(leaguesVC, animated: true)
     }
 }
