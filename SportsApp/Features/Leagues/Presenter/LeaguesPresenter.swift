@@ -23,7 +23,6 @@ class LeaguesPresenter {
     
     private var leagues: [League] = []
     private var filteredLeagues: [League] = []
-    private var favoriteIDs: Set<Int> = []
     
     func getLeagues(for sport: String) {
         
@@ -63,15 +62,22 @@ class LeaguesPresenter {
     }
     
     func isFavorite(id: Int?) -> Bool {
-        return favoriteIDs.contains(id ?? -1)
+        guard let id = id else { return false }
+        return CoreDataManager.shared.isFavorite(id: id)
     }
-    
-    func toggleFavorite(id: Int?) {
-        let key = id ?? -1
-        if favoriteIDs.contains(key) {
-            favoriteIDs.remove(key)
+
+    func toggleFavorite(league: League) {
+        
+        guard let id = league.leagueKey else { return }
+        
+        if CoreDataManager.shared.isFavorite(id: id) {
+            CoreDataManager.shared.deleteLeague(id: id)
         } else {
-            favoriteIDs.insert(key)
+            CoreDataManager.shared.saveLeague(
+                id: id,
+                name: league.leagueName ?? "",
+                logo: league.leagueLogo ?? ""
+            )
         }
     }
 }
