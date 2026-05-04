@@ -14,7 +14,6 @@ class LeagueCell: UITableViewCell {
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var leagueNameLabel: UILabel!
     
-    var isFavorite = false
     var onFavTapped: (() -> Void)?
     
     override func awakeFromNib() {
@@ -35,11 +34,6 @@ class LeagueCell: UITableViewCell {
         leagueImage.clipsToBounds = true
     }
     
-    func updateFavUI() {
-        let imageName = isFavorite ? "fav-icon" : "fav-icon-outline"
-        favButton.setImage(UIImage(named: imageName), for: .normal)
-    }
-    
     @IBAction func favBtn(_ sender: Any) {
         onFavTapped?()
     }
@@ -48,8 +42,7 @@ class LeagueCell: UITableViewCell {
         
         leagueNameLabel.text = league.leagueName ?? "No Name"
         
-        self.isFavorite = isFavorite
-        updateFavUI()
+        updateFavUI(isFavorite: isFavorite)
         
         if let urlString = league.leagueLogo,
            let url = URL(string: urlString) {
@@ -58,5 +51,10 @@ class LeagueCell: UITableViewCell {
         } else {
             leagueImage.image = UIImage(named: "placeholder-league")
         }
+    }
+
+    func updateFavUI(isFavorite: Bool) {
+        let imageName = isFavorite ? "fav-icon" : "fav-icon-outline"
+        favButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }

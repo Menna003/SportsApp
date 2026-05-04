@@ -82,8 +82,9 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
         cell.onFavTapped = { [weak self] in
             guard let self = self else { return }
             
-            self.presenter.toggleFavorite(id: league.leagueKey)
-            self.leaguesTableView.reloadRows(at: [indexPath], with: .none)
+            self.presenter.toggleFavorite(league: league)
+            
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         
         return cell
