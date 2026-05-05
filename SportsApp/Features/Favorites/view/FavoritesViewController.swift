@@ -11,12 +11,13 @@ import CoreData
 class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var emptyImageView: UIImageView!
     let presenter = FavoritesPresenter()
     var favorites: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emptyImageView.isHidden = true
         
         tableView.register(UINib(nibName: "LeagueCell", bundle: nil), forCellReuseIdentifier: "LeagueCell")
         
@@ -43,6 +44,12 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
     
     func showFavorites(_ leagues: [NSManagedObject]) {
         self.favorites = leagues
+        
+        let isEmpty = leagues.isEmpty
+        
+        tableView.isHidden = isEmpty
+        emptyImageView.isHidden = !isEmpty
+        
         tableView.reloadData()
     }
     
