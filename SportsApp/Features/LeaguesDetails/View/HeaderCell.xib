@@ -11,21 +11,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HeaderCell" customModule="SportsApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="350" height="119"/>
+            <rect key="frame" x="0.0" y="0.0" width="309" height="119"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="350" height="119"/>
+                <rect key="frame" x="0.0" y="0.0" width="309" height="119"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Y6h-U4-b7U">
-                        <rect key="frame" x="24" y="34.666666666666664" width="50" height="49.999999999999993"/>
+                        <rect key="frame" x="20" y="34.666666666666664" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="logoHeight"/>
                             <constraint firstAttribute="width" constant="50" id="logoWidth"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premier League" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIJ-wP-ku8">
-                        <rect key="frame" x="86" y="34.666666666666664" width="240" height="24"/>
+                        <rect key="frame" x="80" y="34.666666666666664" width="209" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="titleHeight"/>
                         </constraints>
@@ -34,66 +34,57 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="aMn-Ql-s3y">
-                        <rect key="frame" x="89" y="62.666666666666657" width="16" height="16"/>
+                        <rect key="frame" x="80" y="62.666666666666657" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="countryIconHeight"/>
                             <constraint firstAttribute="width" constant="16" id="countryIconWidth"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIp-dX-2u7">
+                        <rect key="frame" x="100" y="63.333333333333336" width="189" height="14.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="teams" translatesAutoresizingMaskIntoConstraints="NO" id="aML-QI-cPr">
-                        <rect key="frame" x="93" y="85" width="14" height="14"/>
+                        <rect key="frame" x="80" y="85" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="teamsIconHeight"/>
                             <constraint firstAttribute="width" constant="14" id="teamsIconWidth"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Teams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMv-ev-5tH">
-                        <rect key="frame" x="107" y="81" width="33.333333333333343" height="11"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="11" id="teamsLabelHeight"/>
-                        </constraints>
+                        <rect key="frame" x="98" y="85" width="37" height="12"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsL-L6-5Fs">
-                        <rect key="frame" x="94" y="91" width="60" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsL-L6-5Fs">
+                        <rect key="frame" x="135.33333333333331" y="85" width="60" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="countWidth"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="cup" translatesAutoresizingMaskIntoConstraints="NO" id="Vu1-9o-mjC">
-                        <rect key="frame" x="152" y="85" width="14" height="14"/>
+                        <rect key="frame" x="180" y="85" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="cupIconHeight"/>
                             <constraint firstAttribute="width" constant="14" id="cupIconWidth"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Season" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUC-v0-VoA">
-                        <rect key="frame" x="175" y="81" width="38" height="10"/>
+                        <rect key="frame" x="195" y="85" width="38" height="12"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2024/25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-YP-8qE">
-                        <rect key="frame" x="168" y="90" width="51.666666666666657" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="seasonValueHeight"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2024/25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Z-YP-8qE">
+                        <rect key="frame" x="235" y="85" width="47.666666666666664" height="13"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="England" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIp-dX-2u7">
-                        <rect key="frame" x="109" y="65" width="211" height="13"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="13" id="countryHeight"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -101,32 +92,31 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
-                <constraint firstItem="BsL-L6-5Fs" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" constant="4.5" id="countBottom"/>
-                <constraint firstItem="BsL-L6-5Fs" firstAttribute="leading" secondItem="Y6h-U4-b7U" secondAttribute="trailing" constant="20" id="countLeading"/>
-                <constraint firstItem="aMn-Ql-s3y" firstAttribute="leading" secondItem="zIJ-wP-ku8" secondAttribute="leading" constant="3" id="countryIconLeading"/>
+                <constraint firstItem="BsL-L6-5Fs" firstAttribute="centerY" secondItem="aML-QI-cPr" secondAttribute="centerY" id="countCenterY"/>
+                <constraint firstItem="BsL-L6-5Fs" firstAttribute="leading" secondItem="EMv-ev-5tH" secondAttribute="trailing" constant="0.33333333333331439" id="countLeading"/>
+                <constraint firstItem="aMn-Ql-s3y" firstAttribute="leading" secondItem="zIJ-wP-ku8" secondAttribute="leading" id="countryIconLeading"/>
                 <constraint firstItem="aMn-Ql-s3y" firstAttribute="top" secondItem="zIJ-wP-ku8" secondAttribute="bottom" constant="4" id="countryIconTop"/>
                 <constraint firstItem="MIp-dX-2u7" firstAttribute="centerY" secondItem="aMn-Ql-s3y" secondAttribute="centerY" id="countryNameCenterY"/>
-                <constraint firstItem="MIp-dX-2u7" firstAttribute="leading" secondItem="aMn-Ql-s3y" secondAttribute="trailing" constant="3" id="countryNameLeading"/>
-                <constraint firstItem="MIp-dX-2u7" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailingMargin" constant="-15" id="countryNameTrailing"/>
+                <constraint firstItem="MIp-dX-2u7" firstAttribute="leading" secondItem="aMn-Ql-s3y" secondAttribute="trailing" constant="4" id="countryNameLeading"/>
+                <constraint firstItem="MIp-dX-2u7" firstAttribute="trailing" secondItem="zIJ-wP-ku8" secondAttribute="trailing" id="countryNameTrailing"/>
                 <constraint firstItem="Vu1-9o-mjC" firstAttribute="centerY" secondItem="aML-QI-cPr" secondAttribute="centerY" id="cupIconCenterY"/>
-                <constraint firstItem="Vu1-9o-mjC" firstAttribute="width" secondItem="aML-QI-cPr" secondAttribute="width" id="cupIconEqualWidth"/>
-                <constraint firstItem="Vu1-9o-mjC" firstAttribute="leading" secondItem="BsL-L6-5Fs" secondAttribute="trailing" constant="-2" id="cupIconLeading"/>
+                <constraint firstItem="Vu1-9o-mjC" firstAttribute="leading" secondItem="BsL-L6-5Fs" secondAttribute="trailing" constant="-15.333333333333314" id="cupIconLeading"/>
                 <constraint firstItem="Y6h-U4-b7U" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="logoCenterY"/>
-                <constraint firstItem="Y6h-U4-b7U" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" constant="8" id="logoLeading"/>
-                <constraint firstItem="jUC-v0-VoA" firstAttribute="centerY" secondItem="Vu1-9o-mjC" secondAttribute="centerY" constant="-6" id="seasonLabelCenterY"/>
-                <constraint firstItem="jUC-v0-VoA" firstAttribute="leading" secondItem="Vu1-9o-mjC" secondAttribute="trailing" constant="9" id="seasonLabelLeading"/>
-                <constraint firstItem="Z0Z-YP-8qE" firstAttribute="bottom" secondItem="BsL-L6-5Fs" secondAttribute="bottom" constant="-1" id="seasonValueBottom"/>
-                <constraint firstItem="Z0Z-YP-8qE" firstAttribute="leading" secondItem="jUC-v0-VoA" secondAttribute="leading" constant="-2" id="seasonValueLeading"/>
-                <constraint firstItem="Z0Z-YP-8qE" firstAttribute="top" secondItem="jUC-v0-VoA" secondAttribute="bottom" constant="4" id="seasonValueTop"/>
-                <constraint firstItem="aML-QI-cPr" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" constant="-6" id="teamsIconBottom"/>
-                <constraint firstItem="aML-QI-cPr" firstAttribute="leading" secondItem="Y6h-U4-b7U" secondAttribute="trailing" constant="9" id="teamsIconLeading"/>
-                <constraint firstItem="EMv-ev-5tH" firstAttribute="centerY" secondItem="aML-QI-cPr" secondAttribute="centerY" constant="-11.5" id="teamsLabelCenterY"/>
-                <constraint firstItem="EMv-ev-5tH" firstAttribute="leading" secondItem="aML-QI-cPr" secondAttribute="trailing" id="teamsLabelLeading"/>
-                <constraint firstItem="zIJ-wP-ku8" firstAttribute="leading" secondItem="Y6h-U4-b7U" secondAttribute="trailing" constant="12" id="titleLeading"/>
+                <constraint firstItem="Y6h-U4-b7U" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" constant="4" id="logoLeading"/>
+                <constraint firstItem="jUC-v0-VoA" firstAttribute="centerY" secondItem="Vu1-9o-mjC" secondAttribute="centerY" id="seasonLabelCenterY"/>
+                <constraint firstItem="jUC-v0-VoA" firstAttribute="leading" secondItem="Vu1-9o-mjC" secondAttribute="trailing" constant="4" id="seasonLabelLeading"/>
+                <constraint firstItem="Z0Z-YP-8qE" firstAttribute="centerY" secondItem="Vu1-9o-mjC" secondAttribute="centerY" id="seasonValueCenterY"/>
+                <constraint firstItem="Z0Z-YP-8qE" firstAttribute="leading" secondItem="jUC-v0-VoA" secondAttribute="trailing" constant="4" id="seasonValueLeading"/>
+                <constraint firstItem="Z0Z-YP-8qE" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="zIJ-wP-ku8" secondAttribute="trailing" id="seasonValueTrailing"/>
+                <constraint firstItem="aML-QI-cPr" firstAttribute="bottom" secondItem="Y6h-U4-b7U" secondAttribute="bottom" id="teamsIconBottom"/>
+                <constraint firstItem="aML-QI-cPr" firstAttribute="leading" secondItem="zIJ-wP-ku8" secondAttribute="leading" id="teamsIconLeading"/>
+                <constraint firstItem="EMv-ev-5tH" firstAttribute="centerY" secondItem="aML-QI-cPr" secondAttribute="centerY" id="teamsLabelCenterY"/>
+                <constraint firstItem="EMv-ev-5tH" firstAttribute="leading" secondItem="aML-QI-cPr" secondAttribute="trailing" constant="4" id="teamsLabelLeading"/>
+                <constraint firstItem="zIJ-wP-ku8" firstAttribute="leading" secondItem="Y6h-U4-b7U" secondAttribute="trailing" constant="10" id="titleLeading"/>
                 <constraint firstItem="zIJ-wP-ku8" firstAttribute="top" secondItem="Y6h-U4-b7U" secondAttribute="top" id="titleTop"/>
-                <constraint firstItem="zIJ-wP-ku8" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailingMargin" constant="-8" id="titleTrailing"/>
+                <constraint firstItem="zIJ-wP-ku8" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailingMargin" constant="-4" id="titleTrailing"/>
             </constraints>
-            <size key="customSize" width="350" height="119"/>
+            <size key="customSize" width="309" height="119"/>
             <connections>
                 <outlet property="countTeam" destination="BsL-L6-5Fs" id="uNn-ed-rZu"/>
                 <outlet property="countryLogo" destination="aMn-Ql-s3y" id="qBz-Qk-00F"/>
@@ -135,14 +125,14 @@
                 <outlet property="leaguesTitle" destination="zIJ-wP-ku8" id="O1X-QU-eqC"/>
                 <outlet property="seasonLabel" destination="Z0Z-YP-8qE" id="tFo-nc-UUp"/>
             </connections>
-            <point key="canvasLocation" x="146.56488549618319" y="42.605633802816904"/>
+            <point key="canvasLocation" x="132.06106870229007" y="42.605633802816904"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="cup" width="30" height="30"/>
         <image name="teams" width="30" height="30"/>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

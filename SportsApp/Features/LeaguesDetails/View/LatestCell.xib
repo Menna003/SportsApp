@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="LatestCell" customModule="SportsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="367" height="130"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="367" height="130"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13p-G6-dpE">
+                        <rect key="frame" x="210" y="35" width="1" height="80"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="dividerWidth"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uoE-PH-VEt">
+                        <rect key="frame" x="20" y="40" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="homeImageHeight"/>
+                            <constraint firstAttribute="width" constant="60" id="homeImageWidth"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xsQ-Sm-mIg">
+                        <rect key="frame" x="130" y="40" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="awayImageHeight"/>
+                            <constraint firstAttribute="width" constant="60" id="awayImageWidth"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3l-1N-tzJ">
+                        <rect key="frame" x="84" y="57.000000000000007" width="15" height="26.333333333333336"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <color key="textColor" red="0.18039215689999999" green="0.49019607840000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4e-8k-lfE">
+                        <rect key="frame" x="101" y="57.000000000000007" width="10" height="26.333333333333336"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <color key="textColor" red="0.18039215689999999" green="0.49019607840000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WV-4g-tox">
+                        <rect key="frame" x="113" y="57.000000000000007" width="15" height="26.333333333333336"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <color key="textColor" red="0.18039215689999999" green="0.49019607840000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6T-8l-h45">
+                        <rect key="frame" x="17.666666666666664" y="105" width="64.666666666666686" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arsenal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtI-aj-zZS">
+                        <rect key="frame" x="130" y="105" width="60" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="date" translatesAutoresizingMaskIntoConstraints="NO" id="l9s-Vd-NfT">
+                        <rect key="frame" x="222" y="50" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="dateIconHeight"/>
+                            <constraint firstAttribute="width" constant="20" id="dateIconWidth"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19 May 2025" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csC-S2-2lP">
+                        <rect key="frame" x="248.00000000000003" y="50" width="78.333333333333343" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time" translatesAutoresizingMaskIntoConstraints="NO" id="mkh-9Y-feF">
+                        <rect key="frame" x="225" y="80" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="timeIconHeight"/>
+                            <constraint firstAttribute="width" constant="16" id="timeIconWidth"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgZ-6w-49A">
+                        <rect key="frame" x="247.99999999999997" y="80" width="59.666666666666657" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="systemGray5Color"/>
+            <constraints>
+                <constraint firstItem="AtI-aj-zZS" firstAttribute="trailing" secondItem="xsQ-Sm-mIg" secondAttribute="trailing" id="FrI-Co-Dwq"/>
+                <constraint firstItem="xsQ-Sm-mIg" firstAttribute="centerY" secondItem="uoE-PH-VEt" secondAttribute="centerY" id="awayImageCenterY"/>
+                <constraint firstItem="xsQ-Sm-mIg" firstAttribute="leading" secondItem="3WV-4g-tox" secondAttribute="trailing" constant="2" id="awayImageLeading"/>
+                <constraint firstItem="xsQ-Sm-mIg" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="13p-G6-dpE" secondAttribute="leading" constant="-15" id="awayImageMaxTrailing"/>
+                <constraint firstItem="AtI-aj-zZS" firstAttribute="top" secondItem="xsQ-Sm-mIg" secondAttribute="bottom" constant="5" id="awayNameTop"/>
+                <constraint firstItem="3WV-4g-tox" firstAttribute="centerY" secondItem="uoE-PH-VEt" secondAttribute="centerY" id="awayScoreCenterY"/>
+                <constraint firstItem="3WV-4g-tox" firstAttribute="leading" secondItem="v4e-8k-lfE" secondAttribute="trailing" constant="2" id="awayScoreLeading"/>
+                <constraint firstItem="3WV-4g-tox" firstAttribute="width" constant="15" id="awayScoreWidth"/>
+                <constraint firstItem="13p-G6-dpE" firstAttribute="leading" secondItem="AtI-aj-zZS" secondAttribute="trailing" constant="20" id="cir-TY-rOj"/>
+                <constraint firstItem="v4e-8k-lfE" firstAttribute="centerY" secondItem="uoE-PH-VEt" secondAttribute="centerY" id="dashCenterY"/>
+                <constraint firstItem="v4e-8k-lfE" firstAttribute="leading" secondItem="O3l-1N-tzJ" secondAttribute="trailing" constant="2" id="dashLeading"/>
+                <constraint firstItem="v4e-8k-lfE" firstAttribute="width" constant="10" id="dashWidth"/>
+                <constraint firstItem="l9s-Vd-NfT" firstAttribute="leading" secondItem="13p-G6-dpE" secondAttribute="trailing" constant="11" id="dateIconLeading"/>
+                <constraint firstItem="l9s-Vd-NfT" firstAttribute="top" secondItem="13p-G6-dpE" secondAttribute="top" constant="15" id="dateIconTop"/>
+                <constraint firstItem="csC-S2-2lP" firstAttribute="centerY" secondItem="l9s-Vd-NfT" secondAttribute="centerY" constant="-2" id="dateLabelCenterY"/>
+                <constraint firstItem="csC-S2-2lP" firstAttribute="leading" secondItem="l9s-Vd-NfT" secondAttribute="trailing" constant="6" id="dateLabelLeading"/>
+                <constraint firstItem="csC-S2-2lP" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ZTg-uK-7eu" secondAttribute="trailing" constant="-16" id="dateLabelTrailing"/>
+                <constraint firstItem="13p-G6-dpE" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" constant="-15" id="dividerBottom"/>
+                <constraint firstItem="13p-G6-dpE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="35" id="dividerTop"/>
+                <constraint firstItem="uoE-PH-VEt" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="5" id="homeImageCenterY"/>
+                <constraint firstItem="uoE-PH-VEt" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="homeImageLeading"/>
+                <constraint firstItem="l6T-8l-h45" firstAttribute="centerX" secondItem="uoE-PH-VEt" secondAttribute="centerX" id="homeNameCenterX"/>
+                <constraint firstItem="l6T-8l-h45" firstAttribute="width" relation="lessThanOrEqual" secondItem="uoE-PH-VEt" secondAttribute="width" constant="10" id="homeNameMaxWidth"/>
+                <constraint firstItem="l6T-8l-h45" firstAttribute="top" secondItem="uoE-PH-VEt" secondAttribute="bottom" constant="5" id="homeNameTop"/>
+                <constraint firstItem="O3l-1N-tzJ" firstAttribute="centerY" secondItem="uoE-PH-VEt" secondAttribute="centerY" id="homeScoreCenterY"/>
+                <constraint firstItem="O3l-1N-tzJ" firstAttribute="leading" secondItem="uoE-PH-VEt" secondAttribute="trailing" constant="4" id="homeScoreLeading"/>
+                <constraint firstItem="O3l-1N-tzJ" firstAttribute="width" constant="15" id="homeScoreWidth"/>
+                <constraint firstItem="AtI-aj-zZS" firstAttribute="leading" secondItem="xsQ-Sm-mIg" secondAttribute="leading" id="o4E-rM-Tj0"/>
+                <constraint firstItem="mkh-9Y-feF" firstAttribute="leading" secondItem="13p-G6-dpE" secondAttribute="trailing" constant="14" id="timeIconLeading"/>
+                <constraint firstItem="mkh-9Y-feF" firstAttribute="top" secondItem="l9s-Vd-NfT" secondAttribute="bottom" constant="10" id="timeIconTop"/>
+                <constraint firstItem="AgZ-6w-49A" firstAttribute="centerY" secondItem="mkh-9Y-feF" secondAttribute="centerY" id="timeLabelCenterY"/>
+                <constraint firstItem="AgZ-6w-49A" firstAttribute="leading" secondItem="mkh-9Y-feF" secondAttribute="trailing" constant="7" id="timeLabelLeading"/>
+                <constraint firstItem="AgZ-6w-49A" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ZTg-uK-7eu" secondAttribute="trailing" constant="-16" id="timeLabelTrailing"/>
+            </constraints>
+            <size key="customSize" width="367" height="130"/>
+            <connections>
+                <outlet property="awayImage" destination="xsQ-Sm-mIg" id="ezA-25-z4t"/>
+                <outlet property="awayLabel" destination="AtI-aj-zZS" id="HHs-iz-XYE"/>
+                <outlet property="awayTeamImage" destination="xsQ-Sm-mIg" id="outletAwayImage"/>
+                <outlet property="awayTeamName" destination="AtI-aj-zZS" id="outletAwayName"/>
+                <outlet property="awayTeamScore" destination="3WV-4g-tox" id="outletAwayScore"/>
+                <outlet property="dateIcon" destination="l9s-Vd-NfT" id="outletDateIcon"/>
+                <outlet property="dateLabel" destination="csC-S2-2lP" id="2BM-PV-Ird"/>
+                <outlet property="homeImage" destination="uoE-PH-VEt" id="lb7-4c-R2K"/>
+                <outlet property="homeLabel" destination="l6T-8l-h45" id="gOW-Pd-w5C"/>
+                <outlet property="homeScore" destination="O3l-1N-tzJ" id="pSv-XW-qd1"/>
+                <outlet property="homeTeamImage" destination="uoE-PH-VEt" id="outletHomeImage"/>
+                <outlet property="homeTeamName" destination="l6T-8l-h45" id="outletHomeName"/>
+                <outlet property="homeTeamScore" destination="O3l-1N-tzJ" id="outletHomeScore"/>
+                <outlet property="teamScore" destination="3WV-4g-tox" id="KWb-H5-GiI"/>
+                <outlet property="timeIcon" destination="mkh-9Y-feF" id="outletTimeIcon"/>
+                <outlet property="timeLabel" destination="AgZ-6w-49A" id="mmC-gW-Gko"/>
+            </connections>
+            <point key="canvasLocation" x="-1400.7633587786258" y="111.61971830985917"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="date" width="30" height="30"/>
+        <image name="time" width="25" height="25"/>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
