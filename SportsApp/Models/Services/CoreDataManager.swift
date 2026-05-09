@@ -5,7 +5,6 @@
 //  Created by Manona on 04/05/2026.
 //
 
-
 import UIKit
 import CoreData
 
@@ -20,25 +19,31 @@ class CoreDataManager {
         return appDelegate.persistentContainer.viewContext
     }
     
-    func saveLeague(id: Int, name: String, logo: String) {
+    func saveLeague(sport: String, id: Int, name: String, logo: String) {
         
-        let entity = NSEntityDescription.entity(forEntityName: "FavoriteLeague", in: context)!
-        let league = NSManagedObject(entity: entity, insertInto: context)
+        let league = NSEntityDescription.insertNewObject(
+            forEntityName: "FavoriteLeague",
+            into: context
+        )
         
         league.setValue(id, forKey: "id")
         league.setValue(name, forKey: "name")
         league.setValue(logo, forKey: "logo")
+        league.setValue(sport, forKey: "sport")
         
         do {
             try context.save()
+            print("League Saved")
         } catch {
-            print("Save error")
+            print("Failed Saving")
         }
     }
     
     func fetchLeagues() -> [NSManagedObject] {
         
-        let request = NSFetchRequest<NSManagedObject>(entityName: "FavoriteLeague")
+        let request = NSFetchRequest<NSManagedObject>(
+            entityName: "FavoriteLeague"
+        )
         
         do {
             return try context.fetch(request)
@@ -50,10 +55,14 @@ class CoreDataManager {
     
     func deleteLeague(id: Int) {
         
-        let request = NSFetchRequest<NSManagedObject>(entityName: "FavoriteLeague")
+        let request = NSFetchRequest<NSManagedObject>(
+            entityName: "FavoriteLeague"
+        )
+        
         request.predicate = NSPredicate(format: "id == %d", id)
         
         do {
+            
             let result = try context.fetch(request)
             
             for obj in result {
@@ -69,7 +78,10 @@ class CoreDataManager {
     
     func isFavorite(id: Int) -> Bool {
         
-        let request = NSFetchRequest<NSManagedObject>(entityName: "FavoriteLeague")
+        let request = NSFetchRequest<NSManagedObject>(
+            entityName: "FavoriteLeague"
+        )
+        
         request.predicate = NSPredicate(format: "id == %d", id)
         
         do {
