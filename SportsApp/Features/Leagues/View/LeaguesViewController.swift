@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -16,9 +17,13 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
     @IBOutlet weak var leaguesTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    private var lottieView: LottieAnimationView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = sportName?.capitalized
+
         leaguesTableView.register(UINib(nibName: "LeagueCell", bundle: nil), forCellReuseIdentifier: "LeagueCell")
         leaguesTableView.delegate = self
         leaguesTableView.dataSource = self
@@ -34,6 +39,8 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
         
         presenter.view = self
         
+        showLoading()
+        
         if let sport = sportName {
             presenter.getLeagues(for: sport)
         }
@@ -42,23 +49,65 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.titleTextAttributes = [
+            .foregroundColor: UIColor.mainGreen,
+            .font: UIFont.boldSystemFont(ofSize: 25)
+        ]
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func showLoading() {
+        let animation = LottieAnimationView(name: "loading")
+        animation.loopMode = .loop
+        animation.contentMode = .scaleAspectFit
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        animation.play()
+        
+        view.addSubview(animation)
+        NSLayoutConstraint.activate([
+            animation.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            animation.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            animation.widthAnchor.constraint(equalToConstant: 200),
+            animation.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        lottieView = animation
+        leaguesTableView.isHidden = true
+        searchBar.isHidden = true
+    }
+    
+    private func hideLoading() {
+        lottieView?.stop()
+        lottieView?.removeFromSuperview()
+        lottieView = nil
+        leaguesTableView.isHidden = false
+        searchBar.isHidden = false
     }
     
     func showLeagues(_ leagues: [League]) {
         self.leagues = leagues
         
         DispatchQueue.main.async {
+            self.hideLoading()
             self.leaguesTableView.reloadData()
         }
     }
     
     func showError() {
-        print("Failed to load leagues")
+        DispatchQueue.main.async {
+            self.hideLoading()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,24 +119,32 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as! LeagueCell
         
         let league = leagues[indexPath.row]
-        
         let isFav = presenter.isFavorite(id: league.leagueKey)
         
         cell.configure(with: league, isFavorite: isFav)
         
         cell.onFavTapped = { [weak self] in
             guard let self = self else { return }
-            
             self.presenter.toggleFavorite(league: league)
-            
             tableView.reloadRows(at: [indexPath], with: .none)
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsVC = storyboard?.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as! LeaguesDetailsViewController
+        
+        let selectedLeague = leagues[indexPath.row]
+        
+        detailsVC.sport = sportName
+        detailsVC.leagueId = selectedLeague.leagueKey
+        detailsVC.league = selectedLeague
+        
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

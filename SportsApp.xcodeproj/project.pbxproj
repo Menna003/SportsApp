@@ -7,12 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D76FA0B2FA6AB62002FD2C6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6D76FA0A2FA6AB62002FD2C6 /* SDWebImage */; };
-		6D9DE30B2FA5F8EB00E5CD2B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6D9DE30A2FA5F8EB00E5CD2B /* Alamofire */; };
+		6D5880BC2FAF188700CC085A /* SportsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D5880BA2FAF188700CC085A /* SportsApp.xcdatamodeld */; };
+		6D7677782FAF95C800219A73 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6D7677772FAF95C800219A73 /* SDWebImage */; };
+		6D76777B2FAF95F900219A73 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6D76777A2FAF95F900219A73 /* Alamofire */; };
+		6D7677822FAF978600219A73 /* Lottie.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7677802FAF977100219A73 /* Lottie.xcframework */; };
+		6D7677832FAF978600219A73 /* Lottie.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7677802FAF977100219A73 /* Lottie.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6D7677842FAF978600219A73 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6D7677832FAF978600219A73 /* Lottie.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6D29C49C2FA245F300D8631C /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D5880BB2FAF188700CC085A /* SportsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SportsApp.xcdatamodel; sourceTree = "<group>"; };
+		6D7677802FAF977100219A73 /* Lottie.xcframework */ = {isa = PBXFileReference; expectedSignature = "SelfSigned:892F1B43047B50538F2F46EAD92900DD3D4811F3582178C061A5FB20F111CB26"; lastKnownFileType = wrapper.xcframework; path = Lottie.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -20,6 +39,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				Lottie.xcframework,
 			);
 			target = 6D29C49B2FA245F300D8631C /* SportsApp */;
 		};
@@ -41,8 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D76FA0B2FA6AB62002FD2C6 /* SDWebImage in Frameworks */,
-				6D9DE30B2FA5F8EB00E5CD2B /* Alamofire in Frameworks */,
+				6D76777B2FAF95F900219A73 /* Alamofire in Frameworks */,
+				6D7677782FAF95C800219A73 /* SDWebImage in Frameworks */,
+				6D7677822FAF978600219A73 /* Lottie.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +73,10 @@
 		6D29C4932FA245F300D8631C = {
 			isa = PBXGroup;
 			children = (
+				6D5880BA2FAF188700CC085A /* SportsApp.xcdatamodeld */,
 				6D29C49E2FA245F300D8631C /* SportsApp */,
 				6D29C49D2FA245F300D8631C /* Products */,
+				6D7677802FAF977100219A73 /* Lottie.xcframework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +98,7 @@
 				6D29C4982FA245F300D8631C /* Sources */,
 				6D29C4992FA245F300D8631C /* Frameworks */,
 				6D29C49A2FA245F300D8631C /* Resources */,
+				6D7677842FAF978600219A73 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -85,8 +109,8 @@
 			);
 			name = SportsApp;
 			packageProductDependencies = (
-				6D9DE30A2FA5F8EB00E5CD2B /* Alamofire */,
-				6D76FA0A2FA6AB62002FD2C6 /* SDWebImage */,
+				6D7677772FAF95C800219A73 /* SDWebImage */,
+				6D76777A2FAF95F900219A73 /* Alamofire */,
 			);
 			productName = SportsApp;
 			productReference = 6D29C49C2FA245F300D8631C /* SportsApp.app */;
@@ -117,8 +141,8 @@
 			mainGroup = 6D29C4932FA245F300D8631C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				6D9DE3092FA5F8EB00E5CD2B /* XCRemoteSwiftPackageReference "Alamofire" */,
-				6D76FA092FA6AB62002FD2C6 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6D7677762FAF95C800219A73 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6D7677792FAF95F900219A73 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6D29C49D2FA245F300D8631C /* Products */;
@@ -145,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D5880BC2FAF188700CC085A /* SportsApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +381,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6D76FA092FA6AB62002FD2C6 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		6D7677762FAF95C800219A73 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
 			requirement = {
@@ -364,28 +389,41 @@
 				minimumVersion = 5.21.7;
 			};
 		};
-		6D9DE3092FA5F8EB00E5CD2B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		6D7677792FAF95F900219A73 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.11.2;
+				minimumVersion = 5.12.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6D76FA0A2FA6AB62002FD2C6 /* SDWebImage */ = {
+		6D7677772FAF95C800219A73 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6D76FA092FA6AB62002FD2C6 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 6D7677762FAF95C800219A73 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
-		6D9DE30A2FA5F8EB00E5CD2B /* Alamofire */ = {
+		6D76777A2FAF95F900219A73 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6D9DE3092FA5F8EB00E5CD2B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 6D7677792FAF95F900219A73 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		6D5880BA2FAF188700CC085A /* SportsApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D5880BB2FAF188700CC085A /* SportsApp.xcdatamodel */,
+			);
+			currentVersion = 6D5880BB2FAF188700CC085A /* SportsApp.xcdatamodel */;
+			path = SportsApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6D29C4942FA245F300D8631C /* Project object */;
 }

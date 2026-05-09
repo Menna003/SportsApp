@@ -5,6 +5,13 @@
 //  Created by Manona on 02/05/2026.
 //
 
+//
+//  LeaguesPresenter.swift
+//  SportsApp
+//
+//  Created by Manona on 02/05/2026.
+//
+
 import Foundation
 
 protocol LeaguesViewProtocol: AnyObject {
@@ -24,7 +31,11 @@ class LeaguesPresenter {
     private var leagues: [League] = []
     private var filteredLeagues: [League] = []
     
+    var currentSport: String?
+    
     func getLeagues(for sport: String) {
+        
+        currentSport = sport
         
         network.fetchLeagues(for: sport) { [weak self] response in
             
@@ -71,9 +82,13 @@ class LeaguesPresenter {
         guard let id = league.leagueKey else { return }
         
         if CoreDataManager.shared.isFavorite(id: id) {
+            
             CoreDataManager.shared.deleteLeague(id: id)
+            
         } else {
+            
             CoreDataManager.shared.saveLeague(
+                sport: currentSport ?? "",
                 id: id,
                 name: league.leagueName ?? "",
                 logo: league.leagueLogo ?? ""
@@ -81,3 +96,4 @@ class LeaguesPresenter {
         }
     }
 }
+

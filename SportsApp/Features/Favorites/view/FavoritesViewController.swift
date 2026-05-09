@@ -92,4 +92,32 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let fav = favorites[indexPath.row]
+
+        let league = League(
+            leagueKey: fav.value(forKey: "id") as? Int,
+            leagueName: fav.value(forKey: "name") as? String,
+            countryKey: nil,
+            countryName: nil,
+            leagueLogo: fav.value(forKey: "logo") as? String,
+            countryLogo: nil,
+            leagueYear: nil,
+            leagueSurface: nil
+        )
+
+        let sport = fav.value(forKey: "sport") as? String
+
+        let detailsVC = storyboard?.instantiateViewController(
+            withIdentifier: "LeaguesDetailsViewController"
+        ) as! LeaguesDetailsViewController
+
+        detailsVC.league = league
+        detailsVC.leagueId = league.leagueKey
+        detailsVC.sport = sport
+
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
 }
