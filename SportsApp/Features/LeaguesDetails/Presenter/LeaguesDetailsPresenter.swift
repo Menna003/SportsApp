@@ -8,70 +8,60 @@
 import Foundation
 
 protocol LeaguesDetailsViewProtocol: AnyObject {
-    func showUpcoming(_ events: [Event])
-    func showLatest(_ events: [Event])
-    func showTeams(_ teams: [Team])
+    func reloadAll()
     func showError()
 }
 
 class LeaguesDetailsPresenter {
-    
+
     weak var view: LeaguesDetailsViewProtocol?
     var network = NetworkService.shared
-    
+
     private var sport: String = ""
     private var leagueId: Int = 0
-    
+
+    private(set) var upcomingEvents: [Event] = []
+    private(set) var latestEvents: [Event] = []
+    private(set) var teams: [Team] = []
+
     func setContext(sport: String, leagueId: Int) {
         self.sport = sport
         self.leagueId = leagueId
     }
-    
+
     func loadAllData() {
-        
-        fetchUpcoming()
-        fetchLatest()
-        fetchTeams()
-    }
-    
-    private func fetchUpcoming() {
-        
+        let group = DispatchGroup()
+
+        group.enter()
         network.fetchUpcomingEvents(sport: sport, leagueId: leagueId) { [weak self] response in
-            
-            guard let self = self else { return }
-            
             if let events = response?.result {
-                self.view?.showUpcoming(events)
-            } else {
-                self.view?.showError()
+                self?.upcomingEvents = events
             }
+            group.leave()
         }
-    }
-    
-    private func fetchLatest() {
-        
+
+        group.enter()
         network.fetchLatestEvents(sport: sport, leagueId: leagueId) { [weak self] response in
-            
-            guard let self = self else { return }
-            
             if let events = response?.result {
-                self.view?.showLatest(events)
-            } else {
-                self.view?.showError()
+                self?.latestEvents = events
             }
+            group.leave()
         }
-    }
-    
-    private func fetchTeams() {
-        
+
+        group.enter()
         network.fetchTeams(sport: sport, leagueId: leagueId) { [weak self] response in
-            
-            guard let self = self else { return }
-            
             if let teams = response?.result {
-                self.view?.showTeams(teams)
-            } else {
+                self?.teams = teams
+            }
+            group.leave()
+        }
+
+        group.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            if self.upcomingEvents.isEmpty && self.latestEvents.isEmpty && self.teams.isEmpty {
                 self.view?.showError()
+            } else {
+                self.view?.reloadAll()
             }
         }
     }

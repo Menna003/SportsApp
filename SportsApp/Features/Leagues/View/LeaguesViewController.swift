@@ -90,6 +90,19 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+            let detailsVC = storyboard?.instantiateViewController(withIdentifier: "LeaguesDetailsViewController") as! LeaguesDetailsViewController
+
+            let selectedLeague = leagues[indexPath.row]
+
+            detailsVC.sport = sportName
+            detailsVC.leagueId = selectedLeague.leagueKey
+            detailsVC.league = selectedLeague
+
+            navigationController?.pushViewController(detailsVC, animated: true)
+        }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         presenter.search(text: searchText)
     }

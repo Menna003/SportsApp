@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D76FA0B2FA6AB62002FD2C6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6D76FA0A2FA6AB62002FD2C6 /* SDWebImage */; };
-		6D9DE30B2FA5F8EB00E5CD2B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6D9DE30A2FA5F8EB00E5CD2B /* Alamofire */; };
+		6D5880532FAEDAD700CC085A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6D5880522FAEDAD700CC085A /* SDWebImage */; };
+		6D5880562FAEDAE800CC085A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6D5880552FAEDAE800CC085A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D76FA0B2FA6AB62002FD2C6 /* SDWebImage in Frameworks */,
-				6D9DE30B2FA5F8EB00E5CD2B /* Alamofire in Frameworks */,
+				6D5880532FAEDAD700CC085A /* SDWebImage in Frameworks */,
+				6D5880562FAEDAE800CC085A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +85,8 @@
 			);
 			name = SportsApp;
 			packageProductDependencies = (
-				6D9DE30A2FA5F8EB00E5CD2B /* Alamofire */,
-				6D76FA0A2FA6AB62002FD2C6 /* SDWebImage */,
+				6D5880522FAEDAD700CC085A /* SDWebImage */,
+				6D5880552FAEDAE800CC085A /* Alamofire */,
 			);
 			productName = SportsApp;
 			productReference = 6D29C49C2FA245F300D8631C /* SportsApp.app */;
@@ -117,8 +117,8 @@
 			mainGroup = 6D29C4932FA245F300D8631C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				6D9DE3092FA5F8EB00E5CD2B /* XCRemoteSwiftPackageReference "Alamofire" */,
-				6D76FA092FA6AB62002FD2C6 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6D5880512FAEDAD700CC085A /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				6D5880542FAEDAE800CC085A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6D29C49D2FA245F300D8631C /* Products */;
@@ -356,7 +356,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6D76FA092FA6AB62002FD2C6 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		6D5880512FAEDAD700CC085A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
 			requirement = {
@@ -364,25 +364,25 @@
 				minimumVersion = 5.21.7;
 			};
 		};
-		6D9DE3092FA5F8EB00E5CD2B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		6D5880542FAEDAE800CC085A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.11.2;
+				minimumVersion = 5.12.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6D76FA0A2FA6AB62002FD2C6 /* SDWebImage */ = {
+		6D5880522FAEDAD700CC085A /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6D76FA092FA6AB62002FD2C6 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 6D5880512FAEDAD700CC085A /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
-		6D9DE30A2FA5F8EB00E5CD2B /* Alamofire */ = {
+		6D5880552FAEDAE800CC085A /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6D9DE3092FA5F8EB00E5CD2B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 6D5880542FAEDAE800CC085A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
