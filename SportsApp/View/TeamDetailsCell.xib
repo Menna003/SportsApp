@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="TeamDetailsCell" customModule="SportsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abc-11-crd">
+                        <rect key="frame" x="12" y="6" width="351" height="68"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3c-vC-Ddc">
+                                <rect key="frame" x="10" y="8" width="52" height="52"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Player Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh1-AT-R6o">
+                                <rect key="frame" x="74" y="12" width="223" height="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Forward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJx-nu-OdK">
+                                <rect key="frame" x="74" y="38" width="223" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.17999999999999999" green="0.48999999999999999" blue="0.19600000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shirt-player" translatesAutoresizingMaskIntoConstraints="NO" id="Do4-lN-zPG">
+                                <rect key="frame" x="305" y="16" width="36" height="36"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="ENe-Du-zA1">
+                                <rect key="frame" x="305" y="16" width="36" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.49019607840000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S3c-vC-Ddc" firstAttribute="leading" secondItem="Abc-11-crd" secondAttribute="leading" constant="10" id="Aaa-11-001"/>
+                            <constraint firstItem="S3c-vC-Ddc" firstAttribute="centerY" secondItem="Abc-11-crd" secondAttribute="centerY" id="Aaa-11-002"/>
+                            <constraint firstItem="S3c-vC-Ddc" firstAttribute="width" constant="52" id="Aaa-11-003"/>
+                            <constraint firstItem="S3c-vC-Ddc" firstAttribute="height" constant="52" id="Aaa-11-004"/>
+                            <constraint firstItem="kh1-AT-R6o" firstAttribute="leading" secondItem="S3c-vC-Ddc" secondAttribute="trailing" constant="12" id="Aaa-11-005"/>
+                            <constraint firstItem="kh1-AT-R6o" firstAttribute="bottom" secondItem="Abc-11-crd" secondAttribute="centerY" constant="-2" id="Aaa-11-006"/>
+                            <constraint firstItem="kh1-AT-R6o" firstAttribute="trailing" secondItem="Do4-lN-zPG" secondAttribute="leading" constant="-8" id="Aaa-11-007"/>
+                            <constraint firstItem="kh1-AT-R6o" firstAttribute="height" constant="20" id="Aaa-11-008"/>
+                            <constraint firstItem="DJx-nu-OdK" firstAttribute="leading" secondItem="kh1-AT-R6o" secondAttribute="leading" id="Aaa-11-009"/>
+                            <constraint firstItem="DJx-nu-OdK" firstAttribute="top" secondItem="Abc-11-crd" secondAttribute="centerY" constant="4" id="Aaa-11-010"/>
+                            <constraint firstItem="DJx-nu-OdK" firstAttribute="trailing" secondItem="kh1-AT-R6o" secondAttribute="trailing" id="Aaa-11-011"/>
+                            <constraint firstItem="DJx-nu-OdK" firstAttribute="height" constant="16" id="Aaa-11-012"/>
+                            <constraint firstItem="Do4-lN-zPG" firstAttribute="trailing" secondItem="Abc-11-crd" secondAttribute="trailing" constant="-10" id="Aaa-11-013"/>
+                            <constraint firstItem="Do4-lN-zPG" firstAttribute="centerY" secondItem="Abc-11-crd" secondAttribute="centerY" id="Aaa-11-014"/>
+                            <constraint firstItem="Do4-lN-zPG" firstAttribute="width" constant="36" id="Aaa-11-015"/>
+                            <constraint firstItem="Do4-lN-zPG" firstAttribute="height" constant="36" id="Aaa-11-016"/>
+                            <constraint firstItem="ENe-Du-zA1" firstAttribute="centerX" secondItem="Do4-lN-zPG" secondAttribute="centerX" id="Aaa-11-017"/>
+                            <constraint firstItem="ENe-Du-zA1" firstAttribute="centerY" secondItem="Do4-lN-zPG" secondAttribute="centerY" id="Aaa-11-018"/>
+                            <constraint firstItem="ENe-Du-zA1" firstAttribute="width" secondItem="Do4-lN-zPG" secondAttribute="width" id="Aaa-11-019"/>
+                            <constraint firstItem="ENe-Du-zA1" firstAttribute="height" secondItem="Do4-lN-zPG" secondAttribute="height" id="Aaa-11-020"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Abc-11-crd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="Bbb-22-001"/>
+                    <constraint firstItem="Abc-11-crd" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-6" id="Bbb-22-002"/>
+                    <constraint firstItem="Abc-11-crd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Bbb-22-003"/>
+                    <constraint firstItem="Abc-11-crd" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-12" id="Bbb-22-004"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="playerImage" destination="S3c-vC-Ddc" id="cyI-Ut-VfQ"/>
+                <outlet property="playerNumber" destination="ENe-Du-zA1" id="zQy-AS-EhS"/>
+                <outlet property="playerTitle" destination="kh1-AT-R6o" id="scO-DR-iM2"/>
+                <outlet property="playerType" destination="DJx-nu-OdK" id="MnX-3P-kSX"/>
+                <outlet property="shirtImageView" destination="Do4-lN-zPG" id="Ccc-33-001"/>
+            </connections>
+            <point key="canvasLocation" x="138" y="19"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="shirt-player" width="35" height="35"/>
+    </resources>
+</document>
