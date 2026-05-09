@@ -1,3 +1,10 @@
+//
+//  TeamsCell.swift
+//  SportsApp
+//
+//  Created by Manona on 08/05/2026.
+//
+
 import UIKit
 import SDWebImage
 
@@ -46,7 +53,6 @@ class UpcomingCell: UICollectionViewCell {
     }
 
     func configure(with event: Event) {
-
         dateLabel.text = event.eventDate ?? "No Date"
         timeLabel.text = event.eventTime ?? "No Time"
         homeLabel.text = event.homeTeam ?? "Home Team"

@@ -41,14 +41,13 @@ class HeaderCell: UICollectionViewCell {
     }
 
     func configure(with league: League, teamsCount: Int) {
-
         leaguesTitle.text = league.leagueName ?? "League"
         countryTitle.text = league.countryName ?? "Unknown Country"
-        seasonLabel.text = league.leagueYear ?? "2025"
-        countTeam.text = "\(teamsCount)"
+        seasonLabel.text  = league.leagueYear ?? "2025"
+        countTeam.text    = "\(teamsCount)"
 
         if let leagueLogo = league.leagueLogo, let url = URL(string: leagueLogo) {
-            leaguesImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder-country"))
+            leaguesImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder-league"))
         } else {
             leaguesImage.image = UIImage(named: "placeholder-country")
         }

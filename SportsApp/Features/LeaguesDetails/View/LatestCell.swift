@@ -57,7 +57,7 @@ class LatestCell: UICollectionViewCell {
     func configure(with event: Event) {
         homeLabel.text = event.homeTeam    ?? "Home Team"
         awayLabel.text = event.awayTeam   ?? "Away Team"
-        score.text     = event.finalResult ?? "- -"
+        score.text     = event.finalResult ?? "0 - 0"
         dateLabel.text = event.eventDate  ?? "No Date"
         timeLabel.text = event.eventTime  ?? "No Time"
 
