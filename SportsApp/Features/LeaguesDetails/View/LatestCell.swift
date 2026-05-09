@@ -21,51 +21,55 @@ class LatestCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        layer.cornerRadius  = 20
+        layer.shadowColor   = UIColor.black.cgColor
+        layer.shadowOpacity = 0.10
+        layer.shadowOffset  = CGSize(width: 0, height: 3)
+        layer.shadowRadius  = 6
+        layer.masksToBounds = false
+
         contentView.layer.cornerRadius = 20
-        contentView.clipsToBounds = true
+        contentView.clipsToBounds      = true
 
+        pinLabelsToBottom()
+    }
+
+    private func pinLabelsToBottom() {
+        NSLayoutConstraint.deactivate(homeLabel.constraints)
+        NSLayoutConstraint.deactivate(awayLabel.constraints)
+
+        NSLayoutConstraint.activate([
+            homeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            homeLabel.centerXAnchor.constraint(equalTo: homeImage.centerXAnchor),
+            awayLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            awayLabel.centerXAnchor.constraint(equalTo: awayImage.centerXAnchor),
+        ])
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
         homeImage.layer.cornerRadius = homeImage.frame.height / 2
-        homeImage.clipsToBounds = true
-
+        homeImage.clipsToBounds      = true
         awayImage.layer.cornerRadius = awayImage.frame.height / 2
-        awayImage.clipsToBounds = true
+        awayImage.clipsToBounds      = true
     }
 
     func configure(with event: Event) {
+        homeLabel.text = event.homeTeam    ?? "Home Team"
+        awayLabel.text = event.awayTeam   ?? "Away Team"
+        score.text     = event.finalResult ?? "- -"
+        dateLabel.text = event.eventDate  ?? "No Date"
+        timeLabel.text = event.eventTime  ?? "No Time"
 
-        homeLabel.text = event.homeTeam ?? "Home Team"
-
-        awayLabel.text = event.awayTeam ?? "Away Team"
-
-        score.text = event.homeScore ?? "0"
-
-        dateLabel.text = event.eventDate ?? "No Date"
-
-        timeLabel.text = event.eventTime ?? "No Time"
-
-        if let homeLogo = event.homeLogo,
-           let url = URL(string: homeLogo) {
-
-            homeImage.sd_setImage(
-                with: url,
-                placeholderImage: UIImage(named: "placeholder-home")
-            )
-
+        if let url = event.homeLogo.flatMap(URL.init) {
+            homeImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder-home"))
         } else {
-
             homeImage.image = UIImage(named: "placeholder-home")
         }
 
-        if let awayLogo = event.awayLogo,
-           let url = URL(string: awayLogo) {
-
-            awayImage.sd_setImage(
-                with: url,
-                placeholderImage: UIImage(named: "placeholder-away")
-            )
-
+        if let url = event.awayLogo.flatMap(URL.init) {
+            awayImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder-away"))
         } else {
-
             awayImage.image = UIImage(named: "placeholder-away")
         }
     }

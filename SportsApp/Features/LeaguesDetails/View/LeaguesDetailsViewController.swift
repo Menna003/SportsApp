@@ -25,6 +25,8 @@ class LeaguesDetailsViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupBlurOnBackground()
+
         collectionView.delegate   = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = makeLayout()
@@ -47,6 +49,23 @@ class LeaguesDetailsViewController: UIViewController,
             presenter.setContext(sport: sport, leagueId: leagueId)
             presenter.loadAllData()
         }
+    }
+
+    private func setupBlurOnBackground() {
+        guard let backgroundImageView = view.subviews.first(where: { $0 is UIImageView }) as? UIImageView else { return }
+
+        let blur     = UIBlurEffect(style: .systemMaterialDark)
+        let blurView = UIVisualEffectView(effect: blur)
+        blurView.alpha = 0.75
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundImageView.addSubview(blurView)
+        NSLayoutConstraint.activate([
+            blurView.topAnchor.constraint(equalTo: backgroundImageView.topAnchor),
+            blurView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor),
+            blurView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
+            blurView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor)
+        ])
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -74,24 +93,27 @@ class LeaguesDetailsViewController: UIViewController,
 
     private func headerSection() -> NSCollectionLayoutSection {
         let item  = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(260)), subitems: [item])
-        return NSCollectionLayoutSection(group: group)
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(143)), subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = .init(top: 12, leading: 16, bottom: 12, trailing: 16)
+        return section
     }
 
     private func upcomingSection() -> NSCollectionLayoutSection {
+        let cardWidth = UIScreen.main.bounds.width * 0.90
         let item    = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
-        let group   = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(170), heightDimension: .absolute(150)), subitems: [item])
+        let group   = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .absolute(cardWidth), heightDimension: .absolute(200)), subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
-        section.interGroupSpacing = 10
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+        section.interGroupSpacing = 12
         section.contentInsets = .init(top: 8, leading: 16, bottom: 12, trailing: 16)
         section.boundarySupplementaryItems = [sectionHeader()]
         return section
     }
 
     private func latestSection() -> NSCollectionLayoutSection {
-        let item    = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(120)))
-        let group   = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(120)), subitems: [item])
+        let item    = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(130)))
+        let group   = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(130)), subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 10
         section.contentInsets = .init(top: 8, leading: 16, bottom: 12, trailing: 16)

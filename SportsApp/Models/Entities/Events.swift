@@ -17,20 +17,18 @@ struct Event: Decodable {
     let eventTime: String?
     let homeTeam: String?
     let awayTeam: String?
-    let homeScore: String?
-    let awayScore: String?
+    let finalResult: String?
     let homeLogo: String?
     let awayLogo: String?
-    
+
     enum CodingKeys: String, CodingKey {
-        case eventKey = "event_key"
-        case eventDate = "event_date"
-        case eventTime = "event_time"
-        case homeTeam = "event_home_team"
-        case awayTeam = "event_away_team"
-        case homeScore = "event_home_final_result"
-        case awayScore = "event_away_final_result"
-        case homeLogo = "home_team_logo"
-        case awayLogo = "away_team_logo"
+        case eventKey    = "event_key"
+        case eventDate   = "event_date"
+        case eventTime   = "event_time"
+        case homeTeam    = "event_home_team"
+        case awayTeam    = "event_away_team"
+        case finalResult = "event_final_result"
+        case homeLogo    = "home_team_logo"
+        case awayLogo    = "away_team_logo"
     }
 }

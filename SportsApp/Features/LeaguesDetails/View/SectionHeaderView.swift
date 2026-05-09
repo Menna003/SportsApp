@@ -17,11 +17,6 @@ class SectionHeaderView: UICollectionReusableView {
         backgroundColor = .clear
 
         titleLabel.font = .systemFont(ofSize: 24, weight: .bold)
-        titleLabel.textColor = UIColor(
-            red: 0/255,
-            green: 120/255,
-            blue: 60/255,
-            alpha: 1
-        )
+        
     }
 }
