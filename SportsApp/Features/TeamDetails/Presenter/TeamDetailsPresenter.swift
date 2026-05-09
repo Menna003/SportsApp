@@ -10,7 +10,7 @@ import Foundation
 protocol TeamDetailsViewProtocol: AnyObject {
     func reloadTable()
     func showError(message: String)
-    func setTeamHeader(name: String?, teamLogoURL: String?, countryLogoURL: String?, countryName: String?)
+    func setTeamHeader(name: String?, teamLogoURL: String?, countryLogoURL: String?, countryNameText: String?)
 }
 
 class TeamDetailsPresenter {
@@ -32,10 +32,10 @@ class TeamDetailsPresenter {
                   countryName: String?) {
 
         view?.setTeamHeader(
-            name:           teamName,
-            teamLogoURL:    teamLogoURL,
-            countryLogoURL: countryLogoURL,
-            countryName:    countryName
+            name:            teamName,
+            teamLogoURL:     teamLogoURL,
+            countryLogoURL:  countryLogoURL,
+            countryNameText: countryName
         )
 
         network.fetchTeamDetails(sport: sport, teamId: teamId) { [weak self] response in
@@ -47,7 +47,6 @@ class TeamDetailsPresenter {
             }
 
             self.players = team.players ?? []
-
             DispatchQueue.main.async { self.view?.reloadTable() }
         }
     }
