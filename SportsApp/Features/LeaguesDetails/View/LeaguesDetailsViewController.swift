@@ -265,3 +265,27 @@ extension LeaguesDetailsViewController: LeaguesDetailsViewProtocol {
         }
     }
 }
+
+extension LeaguesDetailsViewController {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+
+        guard visibleSections[indexPath.section] == .teams else { return }
+
+        let team = presenter.teams[indexPath.item]
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(
+            withIdentifier: "TeamDetailsViewController") as? TeamDetailsViewController else { return }
+
+        vc.sport          = sport
+        vc.teamId         = team.teamKey
+        vc.teamName       = team.teamName
+        vc.teamLogoURL    = team.teamLogo
+        vc.countryLogoURL = league?.countryLogo
+        vc.countryNameStr = league?.countryName
+
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}

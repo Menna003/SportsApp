@@ -44,6 +44,14 @@ class TeamDetailsViewController: UIViewController {
         )
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        teamImage.layer.cornerRadius   = teamImage.frame.height / 2
+        teamImage.clipsToBounds        = true
+        countryLogo.layer.cornerRadius = countryLogo.frame.height / 2
+        countryLogo.clipsToBounds      = true
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
@@ -59,7 +67,7 @@ class TeamDetailsViewController: UIViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.mainGreen,
+            .foregroundColor: UIColor.white,
             .font: UIFont.boldSystemFont(ofSize: 22)
         ]
         navigationController?.navigationBar.standardAppearance   = appearance
@@ -71,7 +79,9 @@ class TeamDetailsViewController: UIViewController {
         playersTable.delegate           = self
         playersTable.dataSource         = self
         playersTable.rowHeight          = UITableView.automaticDimension
-        playersTable.estimatedRowHeight = 80
+        playersTable.estimatedRowHeight = 92
+        playersTable.separatorStyle     = .none
+        playersTable.backgroundColor    = .clear
         playersTable.register(
             UINib(nibName: "TeamDetailsCell", bundle: nil),
             forCellReuseIdentifier: "TeamDetailsCell"
@@ -134,12 +144,12 @@ extension TeamDetailsViewController: UITableViewDataSource {
 
 extension TeamDetailsViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 80 }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 92 }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView {
             header.textLabel?.font      = UIFont.boldSystemFont(ofSize: 15)
-            header.textLabel?.textColor = UIColor.mainGreen
+            header.textLabel?.textColor = UIColor.white
         }
     }
 }
@@ -163,7 +173,8 @@ extension TeamDetailsViewController: TeamDetailsViewProtocol {
     }
 
     func reloadTable() {
-        countPlayers.text = "\(presenter.numberOfPlayers)"
+        let count = presenter.numberOfPlayers
+        countPlayers.text = "\(count) \(count == 1 ? "Player" : "Players")"
         hideLoading()
         playersTable.reloadData()
     }

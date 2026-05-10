@@ -14,11 +14,17 @@ class TeamDetailsCell: UITableViewCell {
     @IBOutlet weak var playerType:   UILabel!
     @IBOutlet weak var playerTitle:  UILabel!
     @IBOutlet weak var playerImage:  UIImageView!
+    @IBOutlet weak var shirtImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        playerImage.clipsToBounds  = true
+        playerImage.contentMode    = .scaleAspectFill
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
         playerImage.layer.cornerRadius = playerImage.frame.height / 2
-        playerImage.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
