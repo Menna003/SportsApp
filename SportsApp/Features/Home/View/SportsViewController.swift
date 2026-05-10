@@ -67,6 +67,8 @@ class SportsViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard checkInternetOrShowToast() else {return}
 
         let selectedSport = sports[indexPath.row].0
 

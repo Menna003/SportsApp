@@ -127,10 +127,19 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
         cell.configure(with: league, isFavorite: isFav)
         
         cell.onFavTapped = { [weak self] in
+            
             guard let self = self else { return }
+            guard checkInternetOrShowToast() else {return}
+        
+            let wasFavorite = self.presenter.isFavorite(id: league.leagueKey)
             self.presenter.toggleFavorite(league: league)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
+
+            if wasFavorite {
+                self.showToast(message: "\(league.leagueName ?? "") removed from favorites")
+            } else {
+                self.showToast(message: "\(league.leagueName ?? "") added to favorites")
+            }
+            self.leaguesTableView.reloadRows(at: [indexPath], with: .none)        }
         
         return cell
     }

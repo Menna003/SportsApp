@@ -85,7 +85,9 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
         
         cell.onFavTapped = { [weak self] in
             guard let self = self, let id = id else { return }
-            
+            guard checkInternetOrShowToast() else {return}
+
+            self.showToast(message: "\(league.leagueName ?? "") removed from favorites")
             CoreDataManager.shared.deleteLeague(id: id)
             self.presenter.getFavorites()
         }
@@ -94,7 +96,7 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        guard checkInternetOrShowToast() else {return}
         let fav = favorites[indexPath.row]
 
         let league = League(

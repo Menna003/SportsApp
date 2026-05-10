@@ -35,7 +35,15 @@ class LeagueCell: UITableViewCell {
     }
     
     @IBAction func favBtn(_ sender: Any) {
-        onFavTapped?()
+
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+
+        animateFavButton()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+
+            self.onFavTapped?()
+        }
     }
     
     func configure(with league: League, isFavorite: Bool) {
@@ -55,6 +63,36 @@ class LeagueCell: UITableViewCell {
 
     func updateFavUI(isFavorite: Bool) {
         let imageName = isFavorite ? "fav-icon" : "fav-icon-outline"
-        favButton.setImage(UIImage(named: imageName), for: .normal)
+        UIView.transition(with: favButton,
+                          duration: 0.2,
+                          options: .transitionCrossDissolve) {
+
+            self.favButton.setImage(UIImage(named: imageName), for: .normal)
+        }
+    }
+    
+    private func animateFavButton() {
+
+        UIView.animate(
+            withDuration: 0.45,
+            delay: 0,
+            usingSpringWithDamping: 0.25,
+            initialSpringVelocity: 7,
+            options: [.curveEaseInOut]
+        ) {
+
+            self.favButton.transform =
+            CGAffineTransform(scaleX: 1.8, y: 1.8)
+                .rotated(by: -.pi / 16)
+
+        } completion: { _ in
+
+            UIView.animate(withDuration: 0.15) {
+
+                self.favButton.transform = .identity
+            }
+        }
     }
 }
+
+
