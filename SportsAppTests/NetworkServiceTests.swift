@@ -1,152 +1,159 @@
+//
+//  NetworkServiceTests.swift
+//  SportsApp
+//
+//  Created by Manona on 09/05/2026.
+//
+
 import XCTest
 @testable import SportsApp
 
-final class NetworkServiceTests: XCTestCase {
+final class NetworkServiceIntegrationTests: XCTestCase {
 
-    var mockService: MockNetworkService!
+    var networkService: NetworkServiceProtocol!
 
     override func setUpWithError() throws {
-
-        mockService = MockNetworkService()
+        networkService = NetworkService.shared
     }
 
     override func tearDownWithError() throws {
-
-        mockService = nil
+        networkService = nil
     }
 
-    // MARK: - Fetch Leagues Success
+    func testFetchLeagues_ShouldReturnLeagues() {
+        let expectation = expectation(description: "Leagues API Call")
 
-    func testFetchLeaguesSuccess() {
-
-        let expectation = expectation(description: "Leagues Success")
-
-        mockService.fetchLeagues(for: "football") { response in
-
+        networkService.fetchLeagues(for: "football") { response in
             XCTAssertNotNil(response)
-            XCTAssertEqual(response?.result.count, 1)
-            XCTAssertEqual(
-                response?.result.first?.leagueName,
-                "Premier League"
-            )
-
+            XCTAssertFalse(response!.result.isEmpty)
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: 10)
     }
 
-    // MARK: - Fetch Leagues Failure
+    func testFetchLeagues_Basketball_ShouldReturnLeagues() {
+        let expectation = expectation(description: "Basketball Leagues")
 
-    func testFetchLeaguesFailure() {
-
-        mockService.shouldReturnNil = true
-
-        let expectation = expectation(description: "Leagues Failure")
-
-        mockService.fetchLeagues(for: "football") { response in
-
-            XCTAssertNil(response)
-
-            expectation.fulfill()
-        }
-
-        waitForExpectations(timeout: 2)
-    }
-
-    // MARK: - Upcoming Events
-
-    func testFetchUpcomingEventsSuccess() {
-
-        let expectation = expectation(description: "Upcoming Success")
-
-        mockService.fetchUpcomingEvents(
-            sport: "football",
-            leagueId: 1
-        ) { response in
-
+        networkService.fetchLeagues(for: "basketball") { response in
             XCTAssertNotNil(response)
-
-            XCTAssertEqual(
-                response?.result.first?.homeTeam,
-                "Liverpool"
-            )
-
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: 10)
     }
 
-    // MARK: - Latest Events
+    func testFetchLeagues_Tennis_ShouldReturnLeagues() {
+        let expectation = expectation(description: "Tennis Leagues")
 
-    func testFetchLatestEventsSuccess() {
-
-        let expectation = expectation(description: "Latest Success")
-
-        mockService.fetchLatestEvents(
-            sport: "football",
-            leagueId: 1
-        ) { response in
-
+        networkService.fetchLeagues(for: "tennis") { response in
             XCTAssertNotNil(response)
-
-            XCTAssertEqual(
-                response?.result.first?.homeTeam,
-                "Barcelona"
-            )
-
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: 10)
     }
 
-    // MARK: - Teams
+    func testFetchLeagues_Cricket_ShouldReturnLeagues() {
+        let expectation = expectation(description: "Cricket Leagues")
 
-    func testFetchTeamsSuccess() {
-
-        let expectation = expectation(description: "Teams Success")
-
-        mockService.fetchTeams(
-            sport: "football",
-            leagueId: 1
-        ) { response in
-
+        networkService.fetchLeagues(for: "cricket") { response in
             XCTAssertNotNil(response)
-
-            XCTAssertEqual(
-                response?.result.first?.teamName,
-                "Liverpool"
-            )
-
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: 10)
     }
 
-    // MARK: - Team Details
+    func testFetchUpcomingEvents_ShouldReturnEvents() {
+        let expectation = expectation(description: "Upcoming Events API Call")
 
-    func testFetchTeamDetailsSuccess() {
-
-        let expectation = expectation(description: "Details Success")
-
-        mockService.fetchTeamDetails(
-            sport: "football",
-            teamId: 1
-        ) { response in
-
+        networkService.fetchUpcomingEvents(sport: "football", leagueId: 152) { response in
             XCTAssertNotNil(response)
-
-            XCTAssertEqual(
-                response?.result.first?.players?.count,
-                1
-            )
-
             expectation.fulfill()
         }
 
-        waitForExpectations(timeout: 2)
+        waitForExpectations(timeout: 10)
+    }
+
+    func testFetchUpcomingEvents_Basketball_ShouldReturnEvents() {
+        let expectation = expectation(description: "Basketball Upcoming Events")
+
+        networkService.fetchUpcomingEvents(sport: "basketball", leagueId: 1) { response in
+            XCTAssertNotNil(response)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+
+    func testFetchLatestEvents_ShouldReturnEvents() {
+        let expectation = expectation(description: "Latest Events API Call")
+
+        networkService.fetchLatestEvents(sport: "football", leagueId: 152) { response in
+            XCTAssertNotNil(response)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+    func testFetchLatestEvents_Tennis_ShouldReturnEvents() {
+        let expectation = expectation(description: "Tennis Latest Events")
+
+        networkService.fetchLatestEvents(sport: "tennis", leagueId: 1) { response in
+            XCTAssertNotNil(response)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+    func testFetchTeams_ShouldReturnTeams() {
+        let expectation = expectation(description: "Teams API Call")
+
+        networkService.fetchTeams(sport: "football", leagueId: 152) { response in
+            XCTAssertNotNil(response)
+            XCTAssertFalse(response!.result!.isEmpty)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+    func testFetchTeams_Basketball_ShouldReturnTeams() {
+        let expectation = expectation(description: "Basketball Teams")
+
+        networkService.fetchTeams(sport: "basketball", leagueId: 1) { response in
+            XCTAssertNotNil(response)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+
+    func testFetchTeamDetails_ShouldReturnTeam() {
+        let expectation = expectation(description: "Team Details API Call")
+
+        networkService.fetchTeamDetails(sport: "football", teamId: 96) { response in
+            XCTAssertNotNil(response)
+            XCTAssertFalse(response!.result!.isEmpty)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+    }
+
+    func testFetchTeamDetails_ShouldContainPlayers() {
+        let expectation = expectation(description: "Team Has Players")
+
+        networkService.fetchTeamDetails(sport: "football", teamId: 96) { response in
+            XCTAssertNotNil(response?.result?.first)
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
     }
 }

@@ -1,3 +1,11 @@
+//
+//  NetworkServiceProtocol.swift
+//  SportsApp
+//
+//  Created by Manona on 09/05/2026.
+//
+
+
 import Foundation
 
 protocol NetworkServiceProtocol {

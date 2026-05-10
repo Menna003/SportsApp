@@ -5,22 +5,11 @@
 //  Created by Manona on 02/05/2026.
 //
 
-//
-//  LeaguesPresenter.swift
-//  SportsApp
-//
-//  Created by Manona on 02/05/2026.
-//
-
 import Foundation
 
 protocol LeaguesViewProtocol: AnyObject {
     func showLeagues(_ leagues: [League])
     func showError()
-}
-
-protocol NetworkServiceProtocol {
-    func fetchLeagues(for sport: String, completion: @escaping (LeaguesResponse?) -> Void)
 }
 
 class LeaguesPresenter {
@@ -30,13 +19,11 @@ class LeaguesPresenter {
     
     private var leagues: [League] = []
     private var filteredLeagues: [League] = []
-    
     var currentSport: String?
     
     func getLeagues(for sport: String) {
         
         currentSport = sport
-        
         network.fetchLeagues(for: sport) { [weak self] response in
             
             guard let self = self else { return }

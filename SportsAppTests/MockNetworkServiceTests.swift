@@ -1,3 +1,11 @@
+//
+//  MockNetworkServiceTests.swift
+//  SportsApp
+//
+//  Created by Manona on 09/05/2026.
+//
+
+
 import XCTest
 @testable import SportsApp
 
@@ -6,16 +14,12 @@ final class MockNetworkServiceTests: XCTestCase {
     var mockService: MockNetworkService!
 
     override func setUpWithError() throws {
-
         mockService = MockNetworkService()
     }
 
     override func tearDownWithError() throws {
-
         mockService = nil
     }
-
-    // MARK: - Fetch Leagues Success
 
     func testFetchLeaguesSuccess() {
 
@@ -24,7 +28,7 @@ final class MockNetworkServiceTests: XCTestCase {
         mockService.fetchLeagues(for: "football") { response in
 
             XCTAssertNotNil(response)
-
+            XCTAssertEqual(response?.result.count, 1)
             XCTAssertEqual(
                 response?.result.first?.leagueName,
                 "Premier League"
@@ -35,8 +39,6 @@ final class MockNetworkServiceTests: XCTestCase {
 
         waitForExpectations(timeout: 2)
     }
-
-    // MARK: - Fetch Leagues Failure
 
     func testFetchLeaguesFailure() {
 
@@ -54,8 +56,6 @@ final class MockNetworkServiceTests: XCTestCase {
         waitForExpectations(timeout: 2)
     }
 
-    // MARK: - Fetch Upcoming Events
-
     func testFetchUpcomingEventsSuccess() {
 
         let expectation = expectation(description: "Upcoming Success")
@@ -68,7 +68,7 @@ final class MockNetworkServiceTests: XCTestCase {
             XCTAssertNotNil(response)
 
             XCTAssertEqual(
-                response?.result.first?.homeTeam,
+                response?.result?.first?.homeTeam,
                 "Liverpool"
             )
 
@@ -78,7 +78,24 @@ final class MockNetworkServiceTests: XCTestCase {
         waitForExpectations(timeout: 2)
     }
 
-    // MARK: - Fetch Latest Events
+    func testFetchUpcomingEventsFailure() {
+
+        mockService.shouldReturnNil = true
+
+        let expectation = expectation(description: "Upcoming Failure")
+
+        mockService.fetchUpcomingEvents(
+            sport: "football",
+            leagueId: 1
+        ) { response in
+
+            XCTAssertNil(response)
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 2)
+    }
 
     func testFetchLatestEventsSuccess() {
 
@@ -92,7 +109,7 @@ final class MockNetworkServiceTests: XCTestCase {
             XCTAssertNotNil(response)
 
             XCTAssertEqual(
-                response?.result.first?.homeTeam,
+                response?.result?.first?.homeTeam,
                 "Barcelona"
             )
 
@@ -102,7 +119,24 @@ final class MockNetworkServiceTests: XCTestCase {
         waitForExpectations(timeout: 2)
     }
 
-    // MARK: - Fetch Teams
+    func testFetchLatestEventsFailure() {
+
+        mockService.shouldReturnNil = true
+
+        let expectation = expectation(description: "Latest Failure")
+
+        mockService.fetchLatestEvents(
+            sport: "football",
+            leagueId: 1
+        ) { response in
+
+            XCTAssertNil(response)
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 2)
+    }
 
     func testFetchTeamsSuccess() {
 
@@ -116,7 +150,7 @@ final class MockNetworkServiceTests: XCTestCase {
             XCTAssertNotNil(response)
 
             XCTAssertEqual(
-                response?.result.first?.teamName,
+                response?.result?.first?.teamName,
                 "Liverpool"
             )
 
@@ -126,7 +160,24 @@ final class MockNetworkServiceTests: XCTestCase {
         waitForExpectations(timeout: 2)
     }
 
-    // MARK: - Fetch Team Details
+    func testFetchTeamsFailure() {
+
+        mockService.shouldReturnNil = true
+
+        let expectation = expectation(description: "Teams Failure")
+
+        mockService.fetchTeams(
+            sport: "football",
+            leagueId: 1
+        ) { response in
+
+            XCTAssertNil(response)
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 2)
+    }
 
     func testFetchTeamDetailsSuccess() {
 
@@ -140,9 +191,28 @@ final class MockNetworkServiceTests: XCTestCase {
             XCTAssertNotNil(response)
 
             XCTAssertEqual(
-                response?.result.first?.players?.count,
+                response?.result?.first?.players?.count,
                 1
             )
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 2)
+    }
+
+    func testFetchTeamDetailsFailure() {
+
+        mockService.shouldReturnNil = true
+
+        let expectation = expectation(description: "Details Failure")
+
+        mockService.fetchTeamDetails(
+            sport: "football",
+            teamId: 1
+        ) { response in
+
+            XCTAssertNil(response)
 
             expectation.fulfill()
         }

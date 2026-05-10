@@ -1,11 +1,17 @@
+//
+//  MockNetworkService.swift
+//  SportsApp
+//
+//  Created by Manona on 09/05/2026.
+//
+
+
 import Foundation
 @testable import SportsApp
 
 final class MockNetworkService: NetworkServiceProtocol {
 
     var shouldReturnNil = false
-
-    // MARK: - Leagues
 
     func fetchLeagues(
         for sport: String,
@@ -35,8 +41,6 @@ final class MockNetworkService: NetworkServiceProtocol {
 
         completion(response)
     }
-
-    // MARK: - Upcoming Events
 
     func fetchUpcomingEvents(
         sport: String,
@@ -68,8 +72,6 @@ final class MockNetworkService: NetworkServiceProtocol {
         completion(response)
     }
 
-    // MARK: - Latest Events
-
     func fetchLatestEvents(
         sport: String,
         leagueId: Int,
@@ -100,8 +102,6 @@ final class MockNetworkService: NetworkServiceProtocol {
         completion(response)
     }
 
-    // MARK: - Teams
-
     func fetchTeams(
         sport: String,
         leagueId: Int,
@@ -127,8 +127,6 @@ final class MockNetworkService: NetworkServiceProtocol {
 
         completion(response)
     }
-
-    // MARK: - Team Details
 
     func fetchTeamDetails(
         sport: String,

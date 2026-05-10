@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "logo.jpg",
+      "filename" : "logoImageo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "logoImageo 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "logoImageo 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
