@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "logoImageo.png",
+      "filename" : "Screenshot 2026-05-11 at 8.23.25 AM.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logoImageo 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "logoImageo 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

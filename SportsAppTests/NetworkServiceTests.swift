@@ -11,7 +11,7 @@ import XCTest
 final class NetworkServiceIntegrationTests: XCTestCase {
 
     var networkService: NetworkServiceProtocol!
-
+    
     override func setUpWithError() throws {
         networkService = NetworkService.shared
     }

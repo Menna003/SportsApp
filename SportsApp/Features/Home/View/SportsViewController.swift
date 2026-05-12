@@ -75,7 +75,6 @@ class SportsViewController: UIViewController, UICollectionViewDataSource, UIColl
         let leaguesVC = storyboard?.instantiateViewController(withIdentifier: "LeaguesViewController") as! LeaguesViewController
 
         leaguesVC.sportName = selectedSport
-
         navigationController?.pushViewController(leaguesVC, animated: true)
     }
 }

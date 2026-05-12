@@ -13,9 +13,7 @@ class SectionHeaderView: UICollectionReusableView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         backgroundColor = .clear
-
         titleLabel.font = .systemFont(ofSize: 24, weight: .bold)
         
     }
