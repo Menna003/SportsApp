@@ -23,5 +23,8 @@ class OnboardingContentViewController: UIViewController {
         backgroundImageView.image = UIImage(named: imageName ?? "")
         titleLabel.text = titleText
         descriptionLabel.text = descriptionText
+
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
     }
 }
