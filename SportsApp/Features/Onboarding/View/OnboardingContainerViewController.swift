@@ -76,11 +76,29 @@ class OnboardingContainerViewController: UIViewController {
 
     private func setupButtons() {
 
+        nextButton.configuration = nil
         nextButton.layer.cornerRadius = 28
+        nextButton.clipsToBounds = true
         nextButton.backgroundColor = UIColor.mainGreen
         nextButton.setTitleColor(.white, for: .normal)
-
         skipButton.setTitleColor(.white, for: .normal)
+    }
+    
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+
+        currentIndex = sender.currentPage
+
+        pageViewController.setViewControllers(
+            [pages[currentIndex]],
+            direction: .forward,
+            animated: true
+        )
+
+        let title = currentIndex == pages.count - 1
+        ? "Start"
+        : "Next"
+
+        nextButton.setTitle(title, for: .normal)
     }
 
     private func setupPages() {
