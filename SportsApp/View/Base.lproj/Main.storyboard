@@ -363,7 +363,77 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJh-ll-Zkx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1126" y="-221"/>
+            <point key="canvasLocation" x="-1924" y="-211"/>
+        </scene>
+        <!--Onboarding Container View Controller-->
+        <scene sceneID="LKR-L2-8a8">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingContainerViewController" id="n1n-JJ-hQ4" customClass="OnboardingContainerViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ixg-hx-bNl">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5V-75-W4G">
+                                <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8c-3w-37B">
+                                <rect key="frame" x="24" y="798.66666666666663" width="67.333333333333329" height="39.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Skip">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="21"/>
+                                    <color key="baseForegroundColor" systemColor="systemGray4Color"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="skipBtn:" destination="n1n-JJ-hQ4" eventType="touchUpInside" id="hef-fY-Hk3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLj-zb-ddy">
+                                <rect key="frame" x="192" y="800.66666666666663" width="186" height="39.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Next">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.18039215689999999" green="0.49019607840000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextBtn:" destination="n1n-JJ-hQ4" eventType="touchUpInside" id="8BA-xO-fYr"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1ew-jn-xy8">
+                                <rect key="frame" x="163.33333333333331" y="730" width="73" height="25.666666666666664"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="n1n-JJ-hQ4" eventType="valueChanged" id="hO7-z4-HwP"/>
+                                </connections>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oZ4-NX-hJI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="U5V-75-W4G" secondAttribute="bottom" id="JHQ-ut-kxE"/>
+                            <constraint firstItem="U5V-75-W4G" firstAttribute="leading" secondItem="ixg-hx-bNl" secondAttribute="leading" id="Pxo-cJ-LL5"/>
+                            <constraint firstAttribute="bottom" secondItem="l8c-3w-37B" secondAttribute="bottom" constant="36" id="Xhq-Rs-kF2"/>
+                            <constraint firstItem="NLj-zb-ddy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l8c-3w-37B" secondAttribute="trailing" constant="8" symbolic="YES" id="gyO-tC-Jsh"/>
+                            <constraint firstAttribute="bottom" secondItem="NLj-zb-ddy" secondAttribute="bottom" constant="34" id="iKx-dS-LuL"/>
+                            <constraint firstItem="NLj-zb-ddy" firstAttribute="leading" secondItem="ixg-hx-bNl" secondAttribute="trailing" constant="-210" id="lz0-0y-R6h"/>
+                            <constraint firstItem="l8c-3w-37B" firstAttribute="leading" secondItem="ixg-hx-bNl" secondAttribute="leading" constant="24" id="m8z-6d-s9X"/>
+                            <constraint firstAttribute="trailing" secondItem="NLj-zb-ddy" secondAttribute="trailing" constant="24" id="phP-8e-bgK"/>
+                            <constraint firstItem="U5V-75-W4G" firstAttribute="top" secondItem="ixg-hx-bNl" secondAttribute="top" id="u7w-Gx-xdU"/>
+                            <constraint firstAttribute="trailing" secondItem="U5V-75-W4G" secondAttribute="trailing" id="xlQ-Xm-AeV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="U5V-75-W4G" id="tRX-a6-wCS"/>
+                        <outlet property="nextButton" destination="NLj-zb-ddy" id="kCf-JV-fYB"/>
+                        <outlet property="pageControl" destination="1ew-jn-xy8" id="zf9-Z1-awd"/>
+                        <outlet property="skipButton" destination="l8c-3w-37B" id="Ghx-cL-nIu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jyd-aR-1w8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1168.6567164179103" y="-211.44164759725399"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Q1g-MQ-3wE">
@@ -464,6 +534,9 @@
         <image name="teams" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
