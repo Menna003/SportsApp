@@ -79,11 +79,9 @@ class TeamDetailsViewController: UIViewController {
         title = teamName ?? "Team"
 
         let appearance = UINavigationBarAppearance()
-
         appearance.configureWithTransparentBackground()
-
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.mainGreen,
+            .foregroundColor: UIColor.white,
             .font: UIFont.boldSystemFont(ofSize: 22)
         ]
 

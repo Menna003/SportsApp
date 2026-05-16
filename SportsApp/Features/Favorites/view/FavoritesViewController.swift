@@ -72,18 +72,13 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
 
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "LeagueCell",
             for: indexPath
         ) as! LeagueCell
-
         let league = favorites[indexPath.row]
-
         let isFav = presenter.isFavorite(id: league.leagueKey ?? 0)
-
         cell.configure(with: league, isFavorite: isFav)
-
         cell.onFavTapped = { [weak self] in
 
             guard let self = self,
@@ -91,11 +86,32 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
 
             guard checkInternetOrShowToast() else { return }
 
-            self.showToast(
-                message: "\(league.leagueName ?? "") removed from favorites"
+            let alert = UIAlertController(
+                title: "Remove Favorite",
+                message: "Are you sure you want to remove this league from favorites?",
+                preferredStyle: .alert
             )
 
-            self.presenter.deleteLeague(id: id)
+            alert.addAction(
+                UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel
+                )
+            )
+
+            alert.addAction(
+                UIAlertAction(
+                    title: "Remove",
+                    style: .destructive
+                ) { _ in
+                    self.showToast(
+                        message: "\(league.leagueName ?? "") removed from favorites"
+                    )
+                    self.presenter.deleteLeague(id: id)
+                }
+            )
+
+            self.present(alert, animated: true)
         }
 
         return cell
