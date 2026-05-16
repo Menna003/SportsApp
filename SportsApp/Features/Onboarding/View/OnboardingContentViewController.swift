@@ -27,4 +27,24 @@ class OnboardingContentViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        backgroundImageView.alpha = 0
+        titleLabel.alpha = 0
+        descriptionLabel.alpha = 0
+
+        UIView.animate(withDuration: 0.6) {
+            self.backgroundImageView.alpha = 1
+        }
+
+        UIView.animate(withDuration: 0.6, delay: 0.2) {
+            self.titleLabel.alpha = 1
+        }
+
+        UIView.animate(withDuration: 0.6, delay: 0.4) {
+            self.descriptionLabel.alpha = 1
+        }
+    }
 }

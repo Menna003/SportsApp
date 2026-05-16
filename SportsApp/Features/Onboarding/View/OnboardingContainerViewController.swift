@@ -54,32 +54,26 @@ class OnboardingContainerViewController: UIViewController {
     }
 
     @IBAction func skipBtn(_ sender: Any) {
-
         goToHome()
     }
 
     private func goToHome() {
 
-        let storyboard = UIStoryboard(
-            name: "Main",
-            bundle: nil
-        )
-
+        UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(
             withIdentifier: "TabBarController"
         )
-
         vc.modalPresentationStyle = .fullScreen
-
         present(vc, animated: true)
     }
 
     private func setupButtons() {
-
         nextButton.configuration = nil
-        nextButton.layer.cornerRadius = 28
+        nextButton.layer.cornerRadius = 16
         nextButton.clipsToBounds = true
         nextButton.backgroundColor = UIColor.mainGreen
+        nextButton.setTitle("Next", for: .normal)
         nextButton.setTitleColor(.white, for: .normal)
         skipButton.setTitleColor(.white, for: .normal)
     }
@@ -90,7 +84,7 @@ class OnboardingContainerViewController: UIViewController {
 
         pageViewController.setViewControllers(
             [pages[currentIndex]],
-            direction: .forward,
+            direction: currentIndex >= sender.currentPage ? .reverse : .forward,
             animated: true
         )
 

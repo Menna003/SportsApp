@@ -39,16 +39,20 @@ class SplashViewController: UIViewController {
 
         animationView.play { finished in
 
-            let homeVC = UIStoryboard(
-                name: "Main",
-                bundle: nil
-            ).instantiateViewController(
-                withIdentifier: "TabBarController"
-            )
+            let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
 
-            homeVC.modalPresentationStyle = .fullScreen
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-            self.present(homeVC, animated: true)
+            let vc: UIViewController
+
+            if hasSeenOnboarding {
+                vc = storyboard.instantiateViewController(withIdentifier: "TabBarController")
+            } else {
+                vc = storyboard.instantiateViewController(withIdentifier: "OnboardingContainerViewController")
+            }
+
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
         }
     }
 }
