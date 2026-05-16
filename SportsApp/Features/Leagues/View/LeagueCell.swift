@@ -37,24 +37,17 @@ class LeagueCell: UITableViewCell {
     @IBAction func favBtn(_ sender: Any) {
 
         UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-
         animateFavButton()
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-
             self.onFavTapped?()
         }
     }
     
     func configure(with league: League, isFavorite: Bool) {
-        
         leagueNameLabel.text = league.leagueName ?? "No Name"
-        
         updateFavUI(isFavorite: isFavorite)
-        
         if let urlString = league.leagueLogo,
            let url = URL(string: urlString) {
-            
             leagueImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder-league"))
         } else {
             leagueImage.image = UIImage(named: "placeholder-league")

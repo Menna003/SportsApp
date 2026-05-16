@@ -197,6 +197,10 @@
                                     <outlet property="delegate" destination="vX7-wh-dAT" id="tYU-Zm-Rmc"/>
                                 </connections>
                             </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-search" id="YbP-YT-9T0">
+                                <rect key="frame" x="16" y="260" width="370" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mDK-OP-HDO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -214,6 +218,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cWH-DS-UAC"/>
                     <connections>
+                        <outlet property="emptySearchImageView" destination="YbP-YT-9T0" id="TzZ-2p-aE5"/>
                         <outlet property="leaguesTableView" destination="syr-wA-3Bp" id="w5V-QY-gAX"/>
                         <outlet property="searchBar" destination="FfP-Nn-NQg" id="9oF-ZE-cDO"/>
                     </connections>
@@ -561,6 +566,7 @@
     <resources>
         <image name="details_header" width="853" height="645"/>
         <image name="dot" width="30" height="30"/>
+        <image name="empty-search" width="1254" height="1254"/>
         <image name="fav-icon" width="30" height="30"/>
         <image name="header" width="1073" height="298"/>
         <image name="no-favorite" width="1254" height="1254"/>

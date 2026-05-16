@@ -14,6 +14,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
     let presenter = LeaguesPresenter()
     var leagues: [League] = []
     
+    @IBOutlet weak var emptySearchImageView: UIImageView!
     @IBOutlet weak var leaguesTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -36,14 +37,13 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
         textField.clipsToBounds = true
         textField.layer.borderWidth = 0
         searchBar.backgroundImage = UIImage()
-        
+    
         presenter.view = self
-        
         showLoading()
-        
         if let sport = sportName {
             presenter.getLeagues(for: sport)
         }
+        emptySearchImageView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,10 +96,14 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol, UITableViewD
     }
     
     func showLeagues(_ leagues: [League]) {
+
         self.leagues = leagues
-        
         DispatchQueue.main.async {
             self.hideLoading()
+            let isSearching = !(self.searchBar.text ?? "").isEmpty
+            let isEmpty = leagues.isEmpty
+            self.emptySearchImageView.isHidden = !(isSearching && isEmpty)
+            self.leaguesTableView.isHidden = isSearching && isEmpty
             self.leaguesTableView.reloadData()
         }
     }
