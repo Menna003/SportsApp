@@ -28,10 +28,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="omT-6z-rYj">
-                            <rect key="frame" x="24" y="377.33333333333331" width="345" height="99.666666666666686"/>
+                            <rect key="frame" x="22.849918433932544" y="436.00000000001546" width="345" height="99.666666666666629"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live The Match" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHj-o8-J6M">
-                                    <rect key="frame" x="0.0" y="0.0" width="345" height="40.666666666666657"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="345" height="40.666666666666664"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -47,9 +47,9 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="omT-6z-rYj" firstAttribute="top" secondItem="1mq-Nf-rg1" secondAttribute="top" constant="377.3268080478507" id="0MB-6k-bks"/>
-                        <constraint firstItem="omT-6z-rYj" firstAttribute="leading" secondItem="1mq-Nf-rg1" secondAttribute="leading" constant="24" id="nd6-XI-qop"/>
-                        <constraint firstAttribute="trailing" secondItem="omT-6z-rYj" secondAttribute="trailing" constant="24" id="pBZ-h3-iap"/>
+                        <constraint firstItem="omT-6z-rYj" firstAttribute="top" secondItem="1mq-Nf-rg1" secondAttribute="top" constant="436.00000000001546" id="0MB-6k-bks"/>
+                        <constraint firstItem="omT-6z-rYj" firstAttribute="leading" secondItem="1mq-Nf-rg1" secondAttribute="leading" constant="22.849918433932544" id="nd6-XI-qop"/>
+                        <constraint firstAttribute="trailing" secondItem="omT-6z-rYj" secondAttribute="trailing" constant="25.150081566067456" id="pBZ-h3-iap"/>
                     </constraints>
                 </view>
             </subviews>
