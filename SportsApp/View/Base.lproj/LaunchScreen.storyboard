@@ -15,17 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logoImage" translatesAutoresizingMaskIntoConstraints="NO" id="pOT-fs-Bxe">
-                                <rect key="frame" x="71" y="301" width="250" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImage" translatesAutoresizingMaskIntoConstraints="NO" id="pOT-fs-Bxe">
+                                <rect key="frame" x="71.333333333333314" y="301" width="250" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.98651496513740167" green="1" blue="0.97465355079490823" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="pOT-fs-Bxe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="96" id="6dD-au-ndr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pOT-fs-Bxe" secondAttribute="trailing" constant="97" id="Fiu-sm-3N2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pOT-fs-Bxe" secondAttribute="bottom" constant="268" id="MRl-EU-NyU"/>
-                            <constraint firstItem="pOT-fs-Bxe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="218" id="VrN-h2-sBz"/>
+                            <constraint firstAttribute="bottom" secondItem="pOT-fs-Bxe" secondAttribute="bottom" constant="301" id="MRl-EU-NyU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pOT-fs-Bxe" secondAttribute="trailing" constant="71.799347471511282" id="Rdn-dR-lNJ"/>
+                            <constraint firstItem="pOT-fs-Bxe" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="301" id="VrN-h2-sBz"/>
+                            <constraint firstItem="pOT-fs-Bxe" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="71.200652528535784" id="as4-xG-GsV"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -35,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoImage" width="190.33332824707031" height="141"/>
+        <image name="logoImage" width="746" height="511"/>
     </resources>
 </document>
