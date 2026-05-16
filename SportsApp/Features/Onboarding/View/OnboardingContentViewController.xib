@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingContentViewController" customModule="SportsApp" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImageView" destination="Ryf-Rh-shc" id="nL8-J2-fEQ"/>
+                <outlet property="descriptionLabel" destination="7F6-Sg-reP" id="wQW-y6-5eH"/>
+                <outlet property="titleLabel" destination="MHj-o8-J6M" id="y5X-y2-eLm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
