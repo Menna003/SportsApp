@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2lQ-gv-kEz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n1n-JJ-hQ4">
     <device id="retina6_3" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
@@ -363,7 +363,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJh-ll-Zkx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1126" y="-221"/>
+            <point key="canvasLocation" x="-1909" y="-222"/>
+        </scene>
+        <!--Onboarding Container View Controller-->
+        <scene sceneID="LKR-L2-8a8">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingContainerViewController" id="n1n-JJ-hQ4" customClass="OnboardingContainerViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ixg-hx-bNl">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5V-75-W4G">
+                                <rect key="frame" x="0.0" y="0.0" width="402" height="724"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1ew-jn-xy8">
+                                <rect key="frame" x="164.66666666666666" y="742" width="73" height="26"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8c-3w-37B">
+                                <rect key="frame" x="24" y="781" width="65.666666666666671" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Skip">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLj-zb-ddy">
+                                <rect key="frame" x="210" y="781" width="176" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Next">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.18039215689999999" green="0.49019607840000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oZ4-NX-hJI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="NLj-zb-ddy" secondAttribute="bottom" constant="55" id="8Xn-uQ-2aT"/>
+                            <constraint firstItem="1ew-jn-xy8" firstAttribute="bottom" secondItem="U5V-75-W4G" secondAttribute="bottom" constant="43.999999999918828" id="GVN-Un-EeM"/>
+                            <constraint firstAttribute="bottom" secondItem="U5V-75-W4G" secondAttribute="bottom" constant="150" id="JHQ-ut-kxE"/>
+                            <constraint firstItem="U5V-75-W4G" firstAttribute="leading" secondItem="ixg-hx-bNl" secondAttribute="leading" id="Pxo-cJ-LL5"/>
+                            <constraint firstItem="1ew-jn-xy8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l8c-3w-37B" secondAttribute="trailing" constant="8" symbolic="YES" id="UUS-Al-5On"/>
+                            <constraint firstAttribute="bottom" secondItem="l8c-3w-37B" secondAttribute="bottom" constant="55" id="Xhq-Rs-kF2"/>
+                            <constraint firstAttribute="trailing" secondItem="NLj-zb-ddy" secondAttribute="trailing" constant="16" id="etz-zJ-irS"/>
+                            <constraint firstItem="l8c-3w-37B" firstAttribute="leading" secondItem="ixg-hx-bNl" secondAttribute="leading" constant="24" id="m8z-6d-s9X"/>
+                            <constraint firstItem="NLj-zb-ddy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1ew-jn-xy8" secondAttribute="trailing" constant="-35.666666666666657" id="rfd-bc-Lp5"/>
+                            <constraint firstItem="U5V-75-W4G" firstAttribute="top" secondItem="ixg-hx-bNl" secondAttribute="top" id="u7w-Gx-xdU"/>
+                            <constraint firstItem="1ew-jn-xy8" firstAttribute="centerX" secondItem="U5V-75-W4G" secondAttribute="centerX" id="vMT-vo-Qv7"/>
+                            <constraint firstAttribute="trailing" secondItem="U5V-75-W4G" secondAttribute="trailing" id="xlQ-Xm-AeV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="U5V-75-W4G" id="tRX-a6-wCS"/>
+                        <outlet property="nextButton" destination="NLj-zb-ddy" id="kCf-JV-fYB"/>
+                        <outlet property="pageControl" destination="1ew-jn-xy8" id="zf9-Z1-awd"/>
+                        <outlet property="skipButton" destination="l8c-3w-37B" id="Ghx-cL-nIu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jyd-aR-1w8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1168.6567164179103" y="-211.44164759725399"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Q1g-MQ-3wE">
@@ -466,7 +528,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

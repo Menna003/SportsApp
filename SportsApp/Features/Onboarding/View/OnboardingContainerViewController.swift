@@ -9,6 +9,10 @@ import UIKit
 
 class OnboardingContainerViewController: UIViewController {
 
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
