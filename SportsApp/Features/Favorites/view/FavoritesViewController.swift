@@ -6,26 +6,31 @@
 //
 
 import UIKit
-import CoreData
 
 class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableViewDelegate, UITableViewDataSource {
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyImageView: UIImageView!
+
     let presenter = FavoritesPresenter()
-    var favorites: [NSManagedObject] = []
-    
+
+    var favorites: [League] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         emptyImageView.isHidden = true
-        
-        tableView.register(UINib(nibName: "LeagueCell", bundle: nil), forCellReuseIdentifier: "LeagueCell")
-        
+
+        tableView.register(
+            UINib(nibName: "LeagueCell", bundle: nil),
+            forCellReuseIdentifier: "LeagueCell"
+        )
+
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         presenter.view = self
-        
+
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.largeTitleDisplayMode = .never
 
@@ -36,81 +41,72 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
             .font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         presenter.getFavorites()
     }
-    
-    func showFavorites(_ leagues: [NSManagedObject]) {
-        self.favorites = leagues
-        
+
+    func showFavorites(_ leagues: [League]) {
+
+        favorites = leagues
+
         let isEmpty = leagues.isEmpty
-        
+
         tableView.isHidden = isEmpty
         emptyImageView.isHidden = !isEmpty
-        
+
         tableView.reloadData()
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         favorites.count
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
         75
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as! LeagueCell
-        
-        let fav = favorites[indexPath.row]
-        
-        let id = fav.value(forKey: "id") as? Int
-        let isFav = CoreDataManager.shared.isFavorite(id: id ?? 0)
-        
-        let league = League(
-            leagueKey: id,
-            leagueName: fav.value(forKey: "name") as? String,
-            countryKey: nil,
-            countryName: nil,
-            leagueLogo: fav.value(forKey: "logo") as? String,
-            countryLogo: nil,
-            leagueYear: nil,
-            leagueSurface: nil
-        )
-        
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "LeagueCell",
+            for: indexPath
+        ) as! LeagueCell
+
+        let league = favorites[indexPath.row]
+
+        let isFav = presenter.isFavorite(id: league.leagueKey ?? 0)
+
         cell.configure(with: league, isFavorite: isFav)
-        
-        cell.onFavTapped = { [weak self] in
-            guard let self = self, let id = id else { return }
-            guard checkInternetOrShowToast() else {return}
 
-            self.showToast(message: "\(league.leagueName ?? "") removed from favorites")
-            CoreDataManager.shared.deleteLeague(id: id)
-            self.presenter.getFavorites()
+        cell.onFavTapped = { [weak self] in
+
+            guard let self = self,
+                  let id = league.leagueKey else { return }
+
+            guard checkInternetOrShowToast() else { return }
+
+            self.showToast(
+                message: "\(league.leagueName ?? "") removed from favorites"
+            )
+
+            self.presenter.deleteLeague(id: id)
         }
-        
+
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard checkInternetOrShowToast() else {return}
-        let fav = favorites[indexPath.row]
 
-        let league = League(
-            leagueKey: fav.value(forKey: "id") as? Int,
-            leagueName: fav.value(forKey: "name") as? String,
-            countryKey: nil,
-            countryName: nil,
-            leagueLogo: fav.value(forKey: "logo") as? String,
-            countryLogo: nil,
-            leagueYear: nil,
-            leagueSurface: nil
-        )
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
 
-        let sport = fav.value(forKey: "sport") as? String
+        guard checkInternetOrShowToast() else { return }
+
+        let league = favorites[indexPath.row]
 
         let detailsVC = storyboard?.instantiateViewController(
             withIdentifier: "LeaguesDetailsViewController"
@@ -118,8 +114,10 @@ class FavoritesViewController: UIViewController, FavoritesViewProtocol, UITableV
 
         detailsVC.league = league
         detailsVC.leagueId = league.leagueKey
-        detailsVC.sport = sport
 
-        navigationController?.pushViewController(detailsVC, animated: true)
+        navigationController?.pushViewController(
+            detailsVC,
+            animated: true
+        )
     }
 }

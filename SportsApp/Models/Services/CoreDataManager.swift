@@ -44,7 +44,6 @@ class CoreDataManager {
         let request = NSFetchRequest<NSManagedObject>(
             entityName: "FavoriteLeague"
         )
-        
         do {
             return try context.fetch(request)
         } catch {
@@ -58,19 +57,14 @@ class CoreDataManager {
         let request = NSFetchRequest<NSManagedObject>(
             entityName: "FavoriteLeague"
         )
-        
         request.predicate = NSPredicate(format: "id == %d", id)
-        
         do {
-            
             let result = try context.fetch(request)
             
             for obj in result {
                 context.delete(obj)
             }
-            
             try context.save()
-            
         } catch {
             print("Delete error")
         }
@@ -81,9 +75,7 @@ class CoreDataManager {
         let request = NSFetchRequest<NSManagedObject>(
             entityName: "FavoriteLeague"
         )
-        
         request.predicate = NSPredicate(format: "id == %d", id)
-        
         do {
             let count = try context.count(for: request)
             return count > 0

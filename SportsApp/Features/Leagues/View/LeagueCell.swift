@@ -88,7 +88,6 @@ class LeagueCell: UITableViewCell {
         } completion: { _ in
 
             UIView.animate(withDuration: 0.15) {
-
                 self.favButton.transform = .identity
             }
         }

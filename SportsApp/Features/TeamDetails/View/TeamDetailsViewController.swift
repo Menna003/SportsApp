@@ -83,7 +83,7 @@ class TeamDetailsViewController: UIViewController {
         appearance.configureWithTransparentBackground()
 
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.white,
+            .foregroundColor: UIColor.mainGreen,
             .font: UIFont.boldSystemFont(ofSize: 22)
         ]
 
