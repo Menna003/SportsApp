@@ -15,7 +15,20 @@ extension UIViewController {
             return true
         }
 
-        showToast(message: "Check your internet and try again later")
+        let alert = UIAlertController(
+            title: "No Internet Connection",
+            message: "Please check your internet connection and try again.",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(
+            UIAlertAction(
+                title: "OK",
+                style: .default
+            )
+        )
+
+        present(alert, animated: true)
         return false
     }
 }
